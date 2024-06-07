@@ -8,9 +8,23 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
+# 读取 train.csv 文件
+train_df = pd.read_csv("data/traindata.csv")
+
+# 读取 data.csv 文件，假设数据列名为 'income'
+data_df = pd.read_csv("data/trainlabel.csv")
+
+# 将 'income' 数据列添加到 train_df 中
+train_df['income'] = data_df['Income']
+
+# 将修改后的 train_df 保存为新的 CSV 文件
+train_df.to_csv("updated_train.csv", index=False)
+
+#
+#
 # loading
-train_data = pd.read_csv('data/traindata1.csv')
-test_data = pd.read_csv('data/testdata1.csv')
+train_data = pd.read_csv('data/traindata.csv')
+test_data = pd.read_csv('data/testdata.csv')
 
 test_data.head()
 
