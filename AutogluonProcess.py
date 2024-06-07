@@ -1,3 +1,9 @@
+
+# Try to implement different Model on the dataset by using autogluon
+
+# 如果你没有看AutogluonProcess.ipynb，我推荐你先去看那个文件里的文档
+# please look at file AutogluonProcess.ipynb first
+
 import autogluon as ag
 import pandas as pd
 from autogluon.tabular import TabularDataset
@@ -15,15 +21,15 @@ train_df = pd.read_csv("data/traindata.csv")
 data_df = pd.read_csv("data/trainlabel.csv")
 
 # 将 'income' 数据列添加到 train_df 中
-train_df['income'] = data_df['Income']
+train_df['Income'] = data_df['Income']
 
 # 将修改后的 train_df 保存为新的 CSV 文件
-train_df.to_csv("updated_train.csv", index=False)
+train_df.to_csv("data/updated_train.csv", index=False)
 
 #
 #
 # loading
-train_data = pd.read_csv('data/traindata.csv')
+train_data = pd.read_csv('data/updated_train.csv')
 test_data = pd.read_csv('data/testdata.csv')
 
 test_data.head()
