@@ -5,5 +5,10 @@
 In this project,
 
 
+This directory contains 3 main program:
+* AutogluonProcess.ipynb & AutogluonProcess.py
+* XGBoost.ipynb
+* Visualization.ipynb
+
 github website:
 https://github.com/Laihb1106205841/CS311-AI-Peoject3-XGBoost.git
