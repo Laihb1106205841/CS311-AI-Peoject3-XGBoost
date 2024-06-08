@@ -14,5 +14,8 @@ This directory contains 3 main program:
 * XGBoost.ipynb
 * Visualization.ipynb
 
-github website:
+This project's Github website:
 https://github.com/Laihb1106205841/CS311-AI-Peoject3-XGBoost.git
+
+XGBoost Github website:
+https://github.com/dmlc/xgboost?tab=security-ov-file
