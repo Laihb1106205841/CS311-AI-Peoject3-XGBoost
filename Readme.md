@@ -63,7 +63,7 @@ pip install xgboost
 
 (tips: install time is a bit long! And we don't fully need it!)
 
-这个包有很多版本限制，要依赖很多包（比如torch），文件非常大，并且需要管理员权限来安装，我们只在Autogluon文件中进行了跑，
+这个包有很多版本限制，它可能会改掉一些下载的东西（比如它会卸载scikit-learn 1.4.2，然后重新安装个版本）要依赖很多包（比如torch），文件非常大，并且需要管理员权限来安装，我们只在Autogluon文件中进行了跑，
 并且最终提交没有依赖那两个文件，而是XGBoost文件，如果跑不起来也没问题。
 ```commandline
 pip install autogluon
