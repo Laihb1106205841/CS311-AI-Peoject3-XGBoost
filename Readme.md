@@ -20,8 +20,16 @@ This directory contains 3 main programs:
 
 ### Running Preparation
 **Needed Python Version:**
- <=3.11 (package autogluon can't support python 3.12!) 
- My computer runs well in 3.11
+
+ ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !
+
+**python <=3.11**
+(package autogluon can't support python 3.12!) 
+
+ ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !
+
+My computer runs well in 3.11
+
 
 **Needed Package:**
 
