@@ -1,8 +1,12 @@
-# Predicting Adult Census Income Using XGBoost Tree Boosting System
-## Haibin Lai 赖海斌
-## 12211612# CS311-AI-Project3-XGBoost
+# Predicting Adult Census Income Using XGBoost Gradient Boosted Trees System
+### Haibin Lai 赖海斌
+### 12211612
 
-In this project,
+<i class="fab fa-python"></i>
+
+![img.png](Img/XGBoost1.png)
+
+In this project, We try to predict Adult Census Income Dataset by using XGBoost Gradient Boosted Trees System.
 
 
 This directory contains 3 main program:

@@ -69,7 +69,10 @@ print(lboard)
 performance = predictor.predict(test_data)
 print(performance)
 
-# 将结果保存到 CSV 文件
-performance.to_csv('predict/Autogluon_predictions.csv', index=False)
+# 将预测结果存储到 DataFrame 中
+predicted_results = performance['prediction']
+
+# 将预测结果保存到 CSV 文件中
+predicted_results.to_csv('predicted_results.csv', index=False)
 
 print("Predictions saved successfully to 'predict/Autogluon_predictions.csv'")
