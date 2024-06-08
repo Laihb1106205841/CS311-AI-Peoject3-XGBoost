@@ -1,6 +1,5 @@
 # Predicting Adult Census Income Using XGBoost Gradient Boosted Trees System
-### Haibin Lai 赖海斌
-### 12211612
+### Haibin Lai 赖海斌 12211612
 
 <i class="fab fa-python"></i>
 
@@ -36,7 +35,7 @@ My computer runs well in 3.11
 | Library    | Version   | Notes                   |
 |------------|-----------|-------------------------|
 | autogluon  | 1.1.0     | 自动化机器学习包                |
-| pandas     | 2.2.2     | 处理数据                    |
+| pandas     | 2.2.1     | 处理数据                    |
 | warnings   | in Python | -                       |
 | matplotlib | 3.9.0     | 画图                      |
 | seaborn    | 0.13.2    | 数据可视化                   |
@@ -62,6 +61,8 @@ Installing autogluon (tips: install time is a bit long! And we don't fully need 
 ```commandline
 pip install autogluon
 ```
+
+
 
 This project's Github website:
 https://github.com/Laihb1106205841/CS311-AI-Peoject3-XGBoost.git
