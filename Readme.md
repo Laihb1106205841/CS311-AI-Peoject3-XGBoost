@@ -25,15 +25,15 @@ This directory contains 3 main programs:
 
 **Needed Package:**
 
-| Library    | Version   | Notes                         |
-|------------|-----------|-------------------------------|
-| autogluon  | 1.1.0     | Recommended                   |
-| pandas     | 2.2.2     | Recommended                   |
-| warnings   | in Python | -                             |
-| matplotlib | 3.9.0     | Recommended                   |
-| seaborn    | 0.13.2    | Recommended                   |
-| sklearn    | 1.4.0     | Recommended (1.5.0 tested OK) |
-| xgboost    | 2.0.3     | Recommended                   |
+| Library    | Version   | Notes                   |
+|------------|-----------|-------------------------|
+| autogluon  | 1.1.0     | 自动化机器学习包                |
+| pandas     | 2.2.2     | 处理数据                    |
+| warnings   | in Python | -                       |
+| matplotlib | 3.9.0     | 画图                      |
+| seaborn    | 0.13.2    | 数据可视化                   |
+| sklearn    | 1.4.0     | 决策树框架 (1.5.0 tested OK) |
+| xgboost    | 2.0.3     | 提供 XGBoost 分类器          |
 
 
 
