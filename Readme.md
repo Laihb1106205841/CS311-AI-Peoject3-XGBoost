@@ -17,5 +17,8 @@ This directory contains 3 main program:
 This project's Github website:
 https://github.com/Laihb1106205841/CS311-AI-Peoject3-XGBoost.git
 
+XGBoost Introduction:
+https://xgboost.readthedocs.io/en/stable/tutorials/model.html
+
 XGBoost Github website:
 https://github.com/dmlc/xgboost?tab=security-ov-file

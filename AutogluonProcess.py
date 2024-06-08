@@ -51,7 +51,8 @@ test_data = pd.read_csv('data/testdata.csv')
 label_column = 'Income'
 
 # training
-predictor = ag.tabular.TabularPredictor(label=label_column, problem_type='binary', verbosity=4)
+predictor = ag.tabular.TabularPredictor(label=label_column, problem_type='binary',
+                                        verbosity=4, path='AutogluonModels/Model')
 # , visualizer='tensorboard'
 
 predictor.fit(train_data=train_data)
@@ -65,14 +66,18 @@ print(lboard)
 
 
 # ---------------------------- Predicting ---------------------------- #
-# predicting
-performance = predictor.predict(test_data)
-print(performance)
+# predicting 使用AutoGluon预测测试集数据
+test_predictions = predictor.predict(test_data)
+print(test_predictions)
 
-# 将预测结果存储到 DataFrame 中
-predicted_results = performance['prediction']
+# 将测试集原本的标签列和预测之后的标签列合并为一个DataFrame
+test_result = pd.concat([test_data, pd.Series(test_predictions, name='predictions')], axis=1)
+
+# 输出测试集原本的标签列和预测之后的标签列
+print("测试集原本的标签列和预测之后的标签列：")
+print(test_result)
 
 # 将预测结果保存到 CSV 文件中
-predicted_results.to_csv('predicted_results.csv', index=False)
+test_result.to_csv('predict/Autogluon_predictions.csv', index=False)
 
 print("Predictions saved successfully to 'predict/Autogluon_predictions.csv'")
