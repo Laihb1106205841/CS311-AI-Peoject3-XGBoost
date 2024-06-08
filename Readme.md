@@ -59,12 +59,16 @@ Pip 21.3+ is required
 pip install xgboost
 ```
 
-Installing autogluon (tips: install time is a bit long! And we don't fully need it!)
+**Installing autogluon**
+
+(tips: install time is a bit long! And we don't fully need it!)
+
+这个包有很多版本限制，并且需要管理员权限来安装，我们只在Autogluon文件中进行了跑，如果跑不起来也没问题。
 ```commandline
 pip install autogluon
 ```
 
-
+### Useful website
 
 This project's Github website:
 https://github.com/Laihb1106205841/CS311-AI-Peoject3-XGBoost.git
