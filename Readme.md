@@ -32,13 +32,15 @@ My computer runs well in 3.11
 
 **Needed Package:**
 
+The following version work well in Anaconda:
+
 | Library    | Version   | Notes                   |
 |------------|-----------|-------------------------|
 | autogluon  | 1.1.0     | 自动化机器学习包                |
 | pandas     | 2.2.1     | 处理数据                    |
 | warnings   | in Python | -                       |
-| matplotlib | 3.9.0     | 画图                      |
-| seaborn    | 0.13.2    | 数据可视化                   |
+| matplotlib | 3.8.4     | 画图                      |
+| seaborn    | 0.12.0    | 数据可视化                   |
 | sklearn    | 1.4.0     | 决策树框架 (1.5.0 tested OK) |
 | xgboost    | 2.0.3     | 提供 XGBoost 分类器          |
 | jupyter    | 1.0.0     |                         |
