@@ -71,7 +71,7 @@ test_predictions = predictor.predict(test_data)
 print(test_predictions)
 
 # 将测试集原本的标签列和预测之后的标签列合并为一个DataFrame
-test_result = pd.concat([test_data, pd.Series(test_predictions, name='predictions')], axis=1)
+test_result = pd.concat([test_data, pd.Series(test_predictions, name='Predictions')], axis=1)
 
 # 输出测试集原本的标签列和预测之后的标签列
 print("测试集原本的标签列和预测之后的标签列：")
@@ -81,3 +81,9 @@ print(test_result)
 test_result.to_csv('predict/Autogluon_predictions.csv', index=False)
 
 print("Predictions saved successfully to 'predict/Autogluon_predictions.csv'")
+
+# 打开一个文本文件，并将 DataFrame 中的 'predictions' 列数据写入文件
+with open('predict/Autogluon_predictions.txt', 'w') as f:
+    # 遍历 'predictions' 列中的每个值，并将其写入文件
+    for value in test_result['Predictions']:
+        f.write(str(value) + '\n')
