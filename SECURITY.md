@@ -1,4 +1,4 @@
-# Security Policy
+# MIT License
 
 Copyright <2024> <Haibin Lai>
 
