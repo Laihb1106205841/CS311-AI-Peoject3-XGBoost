@@ -42,6 +42,7 @@ My computer runs well in 3.11
 | seaborn    | 0.13.2    | 数据可视化                   |
 | sklearn    | 1.4.0     | 决策树框架 (1.5.0 tested OK) |
 | xgboost    | 2.0.3     | 提供 XGBoost 分类器          |
+| jupyter    | 1.0.0     |                         |
 
 
 
