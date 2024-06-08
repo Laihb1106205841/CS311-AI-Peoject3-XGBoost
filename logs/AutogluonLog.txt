@@ -1,0 +1,2141 @@
+"D:\MyProject\AI Project3\Python\.venv\Scripts\python.exe" "D:\MyProject\AI Project3\Python\AutogluonProcess.py"
+trainlabel.txt 已成功转换为 trainlabel.csv
+No path specified. Models will be saved in: "AutogluonModels\ag-20240608_102347"
+No presets specified! To achieve strong results with AutoGluon, it is recommended to use the available presets.
+	Recommended Presets (For more details refer to https://auto.gluon.ai/stable/tutorials/tabular/tabular-essentials.html#presets):
+	presets='best_quality'   : Maximize accuracy. Default time_limit=3600.
+	presets='high_quality'   : Strong accuracy with fast inference speed. Default time_limit=3600.
+	presets='good_quality'   : Good accuracy with very fast inference speed. Default time_limit=3600.
+	presets='medium_quality' : Fast training time, ideal for initial prototyping.
+============ fit kwarg info ============
+User Specified kwargs:
+{}
+Full kwargs:
+{'_feature_generator_kwargs': None,
+ '_save_bag_folds': None,
+ 'ag_args': None,
+ 'ag_args_ensemble': None,
+ 'ag_args_fit': None,
+ 'auto_stack': False,
+ 'calibrate': 'auto',
+ 'ds_args': {'clean_up_fits': True,
+             'detection_time_frac': 0.25,
+             'holdout_data': None,
+             'holdout_frac': 0.1111111111111111,
+             'memory_safe_fits': True,
+             'n_folds': 2,
+             'n_repeats': 1,
+             'validation_procedure': 'holdout'},
+ 'excluded_model_types': None,
+ 'feature_generator': 'auto',
+ 'feature_prune_kwargs': None,
+ 'holdout_frac': None,
+ 'hyperparameter_tune_kwargs': None,
+ 'included_model_types': None,
+ 'keep_only_best': False,
+ 'name_suffix': None,
+ 'num_bag_folds': None,
+ 'num_bag_sets': None,
+ 'num_stack_levels': None,
+ 'pseudo_data': None,
+ 'refit_full': False,
+ 'save_bag_folds': None,
+ 'save_space': False,
+ 'set_best_to_refit_full': False,
+ 'unlabeled_data': None,
+ 'use_bag_holdout': False,
+ 'verbosity': 4}
+========================================
+Saving AutogluonModels\ag-20240608_102347\learner.pkl
+Saving AutogluonModels\ag-20240608_102347\predictor.pkl
+Beginning AutoGluon training ...
+AutoGluon will save models to "AutogluonModels\ag-20240608_102347"
+=================== System Info ===================
+AutoGluon Version:  1.1.0
+Python Version:     3.11.0
+Operating System:   Windows
+Platform Machine:   AMD64
+Platform Version:   10.0.22631
+CPU Count:          8
+GPU Count:          0
+Memory Avail:       4.80 GB / 15.79 GB (30.4%)
+Disk Space Avail:   59.72 GB / 339.23 GB (17.6%)
+===================================================
+Train Data Rows:    22792
+Train Data Columns: 14
+Label Column:       Income
+Problem Type:       binary
+Preprocessing data ...
+Selected class <--> label mapping:  class 1 = 1, class 0 = 0
+Using Feature Generators to preprocess the data ...
+Fitting AutoMLPipelineFeatureGenerator...
+	Available Memory:                    4843.05 MB
+	Train Data (Original)  Memory Usage: 12.58 MB (0.3% of available memory)
+	Inferring data type of each feature based on column values. Set feature_metadata_in to manually specify special dtypes of the features.
+	Stage 1 Generators:
+		Fitting AsTypeFeatureGenerator...
+			Note: Converting 1 features to boolean dtype as they only contain 2 unique values.
+			Original Features (exact raw dtype, raw dtype):
+				('int64', 'int')     : 6 | ['age', 'fnlwgt', 'education.num', 'capital.gain', 'capital.loss', ...]
+				('object', 'object') : 8 | ['workclass', 'education', 'marital.status', 'occupation', 'relationship', ...]
+			Types of features in original data (raw dtype, special dtypes):
+				('int', [])    : 6 | ['age', 'fnlwgt', 'education.num', 'capital.gain', 'capital.loss', ...]
+				('object', []) : 8 | ['workclass', 'education', 'marital.status', 'occupation', 'relationship', ...]
+			Types of features in processed data (exact raw dtype, raw dtype):
+				('int64', 'int')     : 6 | ['age', 'fnlwgt', 'education.num', 'capital.gain', 'capital.loss', ...]
+				('int8', 'int')      : 1 | ['sex']
+				('object', 'object') : 7 | ['workclass', 'education', 'marital.status', 'occupation', 'relationship', ...]
+			Types of features in processed data (raw dtype, special dtypes):
+				('int', [])       : 6 | ['age', 'fnlwgt', 'education.num', 'capital.gain', 'capital.loss', ...]
+				('int', ['bool']) : 1 | ['sex']
+				('object', [])    : 7 | ['workclass', 'education', 'marital.status', 'occupation', 'relationship', ...]
+			0.0s = Fit runtime
+			14 features in original data used to generate 14 features in processed data.
+	Stage 2 Generators:
+		Fitting FillNaFeatureGenerator...
+			Types of features in original data (raw dtype, special dtypes):
+				('int', [])       : 6 | ['age', 'fnlwgt', 'education.num', 'capital.gain', 'capital.loss', ...]
+				('int', ['bool']) : 1 | ['sex']
+				('object', [])    : 7 | ['workclass', 'education', 'marital.status', 'occupation', 'relationship', ...]
+			Types of features in processed data (exact raw dtype, raw dtype):
+				('int64', 'int')     : 6 | ['age', 'fnlwgt', 'education.num', 'capital.gain', 'capital.loss', ...]
+				('int8', 'int')      : 1 | ['sex']
+				('object', 'object') : 7 | ['workclass', 'education', 'marital.status', 'occupation', 'relationship', ...]
+			Types of features in processed data (raw dtype, special dtypes):
+				('int', [])       : 6 | ['age', 'fnlwgt', 'education.num', 'capital.gain', 'capital.loss', ...]
+				('int', ['bool']) : 1 | ['sex']
+				('object', [])    : 7 | ['workclass', 'education', 'marital.status', 'occupation', 'relationship', ...]
+			0.0s = Fit runtime
+			14 features in original data used to generate 14 features in processed data.
+	Stage 3 Generators:
+		Fitting IdentityFeatureGenerator...
+			Types of features in original data (raw dtype, special dtypes):
+				('int', [])       : 6 | ['age', 'fnlwgt', 'education.num', 'capital.gain', 'capital.loss', ...]
+				('int', ['bool']) : 1 | ['sex']
+			Types of features in processed data (exact raw dtype, raw dtype):
+				('int64', 'int') : 6 | ['age', 'fnlwgt', 'education.num', 'capital.gain', 'capital.loss', ...]
+				('int8', 'int')  : 1 | ['sex']
+			Types of features in processed data (raw dtype, special dtypes):
+				('int', [])       : 6 | ['age', 'fnlwgt', 'education.num', 'capital.gain', 'capital.loss', ...]
+				('int', ['bool']) : 1 | ['sex']
+			0.0s = Fit runtime
+			7 features in original data used to generate 7 features in processed data.
+		Fitting CategoryFeatureGenerator...
+			Fitting CategoryMemoryMinimizeFeatureGenerator...
+				Types of features in original data (raw dtype, special dtypes):
+					('category', []) : 7 | ['workclass', 'education', 'marital.status', 'occupation', 'relationship', ...]
+				Types of features in processed data (exact raw dtype, raw dtype):
+					('category', 'category') : 7 | ['workclass', 'education', 'marital.status', 'occupation', 'relationship', ...]
+				Types of features in processed data (raw dtype, special dtypes):
+					('category', []) : 7 | ['workclass', 'education', 'marital.status', 'occupation', 'relationship', ...]
+				0.0s = Fit runtime
+				7 features in original data used to generate 7 features in processed data.
+			Types of features in original data (raw dtype, special dtypes):
+				('object', []) : 7 | ['workclass', 'education', 'marital.status', 'occupation', 'relationship', ...]
+			Types of features in processed data (exact raw dtype, raw dtype):
+				('category', 'category') : 7 | ['workclass', 'education', 'marital.status', 'occupation', 'relationship', ...]
+			Types of features in processed data (raw dtype, special dtypes):
+				('category', []) : 7 | ['workclass', 'education', 'marital.status', 'occupation', 'relationship', ...]
+			0.0s = Fit runtime
+			7 features in original data used to generate 7 features in processed data.
+		Skipping DatetimeFeatureGenerator: No input feature with required dtypes.
+		Skipping TextSpecialFeatureGenerator: No input feature with required dtypes.
+		Skipping TextNgramFeatureGenerator: No input feature with required dtypes.
+		Skipping IdentityFeatureGenerator: No input feature with required dtypes.
+		Skipping IsNanFeatureGenerator: No input feature with required dtypes.
+	Stage 4 Generators:
+		Fitting DropUniqueFeatureGenerator...
+			Types of features in original data (raw dtype, special dtypes):
+				('category', [])  : 7 | ['workclass', 'education', 'marital.status', 'occupation', 'relationship', ...]
+				('int', [])       : 6 | ['age', 'fnlwgt', 'education.num', 'capital.gain', 'capital.loss', ...]
+				('int', ['bool']) : 1 | ['sex']
+			Types of features in processed data (exact raw dtype, raw dtype):
+				('category', 'category') : 7 | ['workclass', 'education', 'marital.status', 'occupation', 'relationship', ...]
+				('int64', 'int')         : 6 | ['age', 'fnlwgt', 'education.num', 'capital.gain', 'capital.loss', ...]
+				('int8', 'int')          : 1 | ['sex']
+			Types of features in processed data (raw dtype, special dtypes):
+				('category', [])  : 7 | ['workclass', 'education', 'marital.status', 'occupation', 'relationship', ...]
+				('int', [])       : 6 | ['age', 'fnlwgt', 'education.num', 'capital.gain', 'capital.loss', ...]
+				('int', ['bool']) : 1 | ['sex']
+			0.0s = Fit runtime
+			14 features in original data used to generate 14 features in processed data.
+	Stage 5 Generators:
+		Fitting DropDuplicatesFeatureGenerator...
+			Types of features in original data (raw dtype, special dtypes):
+				('category', [])  : 7 | ['workclass', 'education', 'marital.status', 'occupation', 'relationship', ...]
+				('int', [])       : 6 | ['age', 'fnlwgt', 'education.num', 'capital.gain', 'capital.loss', ...]
+				('int', ['bool']) : 1 | ['sex']
+			Types of features in processed data (exact raw dtype, raw dtype):
+				('category', 'category') : 7 | ['workclass', 'education', 'marital.status', 'occupation', 'relationship', ...]
+				('int64', 'int')         : 6 | ['age', 'fnlwgt', 'education.num', 'capital.gain', 'capital.loss', ...]
+				('int8', 'int')          : 1 | ['sex']
+			Types of features in processed data (raw dtype, special dtypes):
+				('category', [])  : 7 | ['workclass', 'education', 'marital.status', 'occupation', 'relationship', ...]
+				('int', [])       : 6 | ['age', 'fnlwgt', 'education.num', 'capital.gain', 'capital.loss', ...]
+				('int', ['bool']) : 1 | ['sex']
+			0.0s = Fit runtime
+			14 features in original data used to generate 14 features in processed data.
+	Types of features in original data (exact raw dtype, raw dtype):
+		('int64', 'int')     : 6 | ['age', 'fnlwgt', 'education.num', 'capital.gain', 'capital.loss', ...]
+		('object', 'object') : 8 | ['workclass', 'education', 'marital.status', 'occupation', 'relationship', ...]
+	Types of features in original data (raw dtype, special dtypes):
+		('int', [])    : 6 | ['age', 'fnlwgt', 'education.num', 'capital.gain', 'capital.loss', ...]
+		('object', []) : 8 | ['workclass', 'education', 'marital.status', 'occupation', 'relationship', ...]
+	Types of features in processed data (exact raw dtype, raw dtype):
+		('category', 'category') : 7 | ['workclass', 'education', 'marital.status', 'occupation', 'relationship', ...]
+		('int64', 'int')         : 6 | ['age', 'fnlwgt', 'education.num', 'capital.gain', 'capital.loss', ...]
+		('int8', 'int')          : 1 | ['sex']
+	Types of features in processed data (raw dtype, special dtypes):
+		('category', [])  : 7 | ['workclass', 'education', 'marital.status', 'occupation', 'relationship', ...]
+		('int', [])       : 6 | ['age', 'fnlwgt', 'education.num', 'capital.gain', 'capital.loss', ...]
+		('int', ['bool']) : 1 | ['sex']
+	0.1s = Fit runtime
+	14 features in original data used to generate 14 features in processed data.
+	Train Data (Processed) Memory Usage: 1.22 MB (0.0% of available memory)
+Data preprocessing and feature engineering runtime = 0.14s ...
+AutoGluon will gauge predictive performance using evaluation metric: 'accuracy'
+	To change this, specify the eval_metric parameter of Predictor()
+Saving AutogluonModels\ag-20240608_102347\learner.pkl
+Automatically generating train/validation split with holdout_frac=0.1, Train Rows: 20512, Val Rows: 2280
+User-specified model hyperparameters to be fit:
+{
+	'NN_TORCH': {},
+	'GBM': [{'extra_trees': True, 'ag_args': {'name_suffix': 'XT'}}, {}, 'GBMLarge'],
+	'CAT': {},
+	'XGB': {},
+	'FASTAI': {},
+	'RF': [{'criterion': 'gini', 'ag_args': {'name_suffix': 'Gini', 'problem_types': ['binary', 'multiclass']}}, {'criterion': 'entropy', 'ag_args': {'name_suffix': 'Entr', 'problem_types': ['binary', 'multiclass']}}, {'criterion': 'squared_error', 'ag_args': {'name_suffix': 'MSE', 'problem_types': ['regression', 'quantile']}}],
+	'XT': [{'criterion': 'gini', 'ag_args': {'name_suffix': 'Gini', 'problem_types': ['binary', 'multiclass']}}, {'criterion': 'entropy', 'ag_args': {'name_suffix': 'Entr', 'problem_types': ['binary', 'multiclass']}}, {'criterion': 'squared_error', 'ag_args': {'name_suffix': 'MSE', 'problem_types': ['regression', 'quantile']}}],
+	'KNN': [{'weights': 'uniform', 'ag_args': {'name_suffix': 'Unif'}}, {'weights': 'distance', 'ag_args': {'name_suffix': 'Dist'}}],
+}
+Saving AutogluonModels\ag-20240608_102347\utils\data\X.pkl
+Saving AutogluonModels\ag-20240608_102347\utils\data\y.pkl
+Saving AutogluonModels\ag-20240608_102347\utils\data\X_val.pkl
+Saving AutogluonModels\ag-20240608_102347\utils\data\y_val.pkl
+Model configs that will be trained (in order):
+	KNeighborsUnif: 	{'weights': 'uniform', 'ag_args': {'valid_stacker': False, 'problem_types': ['binary', 'multiclass', 'regression'], 'name_suffix': 'Unif', 'model_type': <class 'autogluon.tabular.models.knn.knn_model.KNNModel'>, 'priority': 100}, 'ag_args_ensemble': {'use_child_oof': True}}
+	KNeighborsDist: 	{'weights': 'distance', 'ag_args': {'valid_stacker': False, 'problem_types': ['binary', 'multiclass', 'regression'], 'name_suffix': 'Dist', 'model_type': <class 'autogluon.tabular.models.knn.knn_model.KNNModel'>, 'priority': 100}, 'ag_args_ensemble': {'use_child_oof': True}}
+	LightGBMXT: 	{'extra_trees': True, 'ag_args': {'name_suffix': 'XT', 'model_type': <class 'autogluon.tabular.models.lgb.lgb_model.LGBModel'>, 'priority': 90}}
+	LightGBM: 	{'ag_args': {'model_type': <class 'autogluon.tabular.models.lgb.lgb_model.LGBModel'>, 'priority': 90}}
+	RandomForestGini: 	{'criterion': 'gini', 'ag_args': {'name_suffix': 'Gini', 'problem_types': ['binary', 'multiclass'], 'model_type': <class 'autogluon.tabular.models.rf.rf_model.RFModel'>, 'priority': 80}, 'ag_args_ensemble': {'use_child_oof': True}}
+	RandomForestEntr: 	{'criterion': 'entropy', 'ag_args': {'name_suffix': 'Entr', 'problem_types': ['binary', 'multiclass'], 'model_type': <class 'autogluon.tabular.models.rf.rf_model.RFModel'>, 'priority': 80}, 'ag_args_ensemble': {'use_child_oof': True}}
+	CatBoost: 	{'ag_args': {'model_type': <class 'autogluon.tabular.models.catboost.catboost_model.CatBoostModel'>, 'priority': 70}}
+	ExtraTreesGini: 	{'criterion': 'gini', 'ag_args': {'name_suffix': 'Gini', 'problem_types': ['binary', 'multiclass'], 'model_type': <class 'autogluon.tabular.models.xt.xt_model.XTModel'>, 'priority': 60}, 'ag_args_ensemble': {'use_child_oof': True}}
+	ExtraTreesEntr: 	{'criterion': 'entropy', 'ag_args': {'name_suffix': 'Entr', 'problem_types': ['binary', 'multiclass'], 'model_type': <class 'autogluon.tabular.models.xt.xt_model.XTModel'>, 'priority': 60}, 'ag_args_ensemble': {'use_child_oof': True}}
+	NeuralNetFastAI: 	{'ag_args': {'model_type': <class 'autogluon.tabular.models.fastainn.tabular_nn_fastai.NNFastAiTabularModel'>, 'priority': 50}}
+	XGBoost: 	{'ag_args': {'problem_types': ['binary', 'multiclass', 'regression', 'softclass'], 'model_type': <class 'autogluon.tabular.models.xgboost.xgboost_model.XGBoostModel'>, 'priority': 40}}
+	NeuralNetTorch: 	{'ag_args': {'model_type': <class 'autogluon.tabular.models.tabular_nn.torch.tabular_nn_torch.TabularNeuralNetTorchModel'>, 'priority': 25}}
+	LightGBMLarge: 	{'learning_rate': 0.03, 'num_leaves': 128, 'feature_fraction': 0.9, 'min_data_in_leaf': 5, 'ag_args': {'model_type': <class 'autogluon.tabular.models.lgb.lgb_model.LGBModel'>, 'name_suffix': 'Large', 'hyperparameter_tune_kwargs': None, 'priority': 0}}
+Fitting 13 L1 models ...
+Fitting model: KNeighborsUnif ...
+	Dropped 8 of 14 features.
+	Fitting KNeighborsUnif with 'num_gpus': 0, 'num_cpus': 8
+Saving AutogluonModels\ag-20240608_102347\models\KNeighborsUnif\model.pkl
+Saving AutogluonModels\ag-20240608_102347\utils\attr\KNeighborsUnif\y_pred_proba_val.pkl
+	0.775	 = Validation score   (accuracy)
+	0.02s	 = Training   runtime
+	0.02s	 = Validation runtime
+Saving AutogluonModels\ag-20240608_102347\models\trainer.pkl
+Fitting model: KNeighborsDist ...
+	Dropped 8 of 14 features.
+	Fitting KNeighborsDist with 'num_gpus': 0, 'num_cpus': 8
+Saving AutogluonModels\ag-20240608_102347\models\KNeighborsDist\model.pkl
+Saving AutogluonModels\ag-20240608_102347\utils\attr\KNeighborsDist\y_pred_proba_val.pkl
+	0.7684	 = Validation score   (accuracy)
+	0.02s	 = Training   runtime
+	0.02s	 = Validation runtime
+Saving AutogluonModels\ag-20240608_102347\models\trainer.pkl
+Fitting model: LightGBMXT ...
+	Dropped 0 of 14 features.
+	Fitting LightGBMXT with 'num_gpus': 0, 'num_cpus': 4
+	Fitting 10000 rounds... Hyperparameters: {'learning_rate': 0.05, 'extra_trees': True}
+[1]	valid_set's binary_error: 0.240789
+[2]	valid_set's binary_error: 0.240789
+[3]	valid_set's binary_error: 0.240789
+[4]	valid_set's binary_error: 0.240789
+[5]	valid_set's binary_error: 0.240789
+[6]	valid_set's binary_error: 0.240789
+[7]	valid_set's binary_error: 0.240789
+[8]	valid_set's binary_error: 0.240789
+[9]	valid_set's binary_error: 0.224561
+[10]	valid_set's binary_error: 0.216667
+[11]	valid_set's binary_error: 0.212719
+[12]	valid_set's binary_error: 0.201754
+[13]	valid_set's binary_error: 0.199561
+[14]	valid_set's binary_error: 0.194737
+[15]	valid_set's binary_error: 0.19386
+[16]	valid_set's binary_error: 0.167544
+[17]	valid_set's binary_error: 0.160526
+[18]	valid_set's binary_error: 0.159211
+[19]	valid_set's binary_error: 0.156579
+[20]	valid_set's binary_error: 0.15614
+[21]	valid_set's binary_error: 0.155263
+[22]	valid_set's binary_error: 0.152193
+[23]	valid_set's binary_error: 0.150877
+[24]	valid_set's binary_error: 0.151316
+[25]	valid_set's binary_error: 0.15
+[26]	valid_set's binary_error: 0.149561
+[27]	valid_set's binary_error: 0.15
+[28]	valid_set's binary_error: 0.147368
+[29]	valid_set's binary_error: 0.146491
+[30]	valid_set's binary_error: 0.146491
+[31]	valid_set's binary_error: 0.145175
+[32]	valid_set's binary_error: 0.14386
+[33]	valid_set's binary_error: 0.142982
+[34]	valid_set's binary_error: 0.141228
+[35]	valid_set's binary_error: 0.139912
+[36]	valid_set's binary_error: 0.139035
+[37]	valid_set's binary_error: 0.139035
+[38]	valid_set's binary_error: 0.138596
+[39]	valid_set's binary_error: 0.137281
+[40]	valid_set's binary_error: 0.137719
+[41]	valid_set's binary_error: 0.137719
+[42]	valid_set's binary_error: 0.136404
+[43]	valid_set's binary_error: 0.135526
+[44]	valid_set's binary_error: 0.135526
+[45]	valid_set's binary_error: 0.134649
+[46]	valid_set's binary_error: 0.135526
+[47]	valid_set's binary_error: 0.133333
+[48]	valid_set's binary_error: 0.132895
+[49]	valid_set's binary_error: 0.132456
+[50]	valid_set's binary_error: 0.132456
+[51]	valid_set's binary_error: 0.131579
+[52]	valid_set's binary_error: 0.130702
+[53]	valid_set's binary_error: 0.13114
+[54]	valid_set's binary_error: 0.130702
+[55]	valid_set's binary_error: 0.128509
+[56]	valid_set's binary_error: 0.127632
+[57]	valid_set's binary_error: 0.12807
+[58]	valid_set's binary_error: 0.127632
+[59]	valid_set's binary_error: 0.128509
+[60]	valid_set's binary_error: 0.12807
+[61]	valid_set's binary_error: 0.127632
+[62]	valid_set's binary_error: 0.12807
+[63]	valid_set's binary_error: 0.128509
+[64]	valid_set's binary_error: 0.12807
+[65]	valid_set's binary_error: 0.12807
+[66]	valid_set's binary_error: 0.127632
+[67]	valid_set's binary_error: 0.12807
+[68]	valid_set's binary_error: 0.127193
+[69]	valid_set's binary_error: 0.127632
+[70]	valid_set's binary_error: 0.127632
+[71]	valid_set's binary_error: 0.127632
+[72]	valid_set's binary_error: 0.127193
+[73]	valid_set's binary_error: 0.126754
+[74]	valid_set's binary_error: 0.127632
+[75]	valid_set's binary_error: 0.12807
+[76]	valid_set's binary_error: 0.127632
+[77]	valid_set's binary_error: 0.127632
+[78]	valid_set's binary_error: 0.12807
+[79]	valid_set's binary_error: 0.127193
+[80]	valid_set's binary_error: 0.127193
+[81]	valid_set's binary_error: 0.126754
+[82]	valid_set's binary_error: 0.126754
+[83]	valid_set's binary_error: 0.126316
+[84]	valid_set's binary_error: 0.126754
+[85]	valid_set's binary_error: 0.127193
+[86]	valid_set's binary_error: 0.126754
+[87]	valid_set's binary_error: 0.12807
+[88]	valid_set's binary_error: 0.12807
+[89]	valid_set's binary_error: 0.127632
+[90]	valid_set's binary_error: 0.128947
+[91]	valid_set's binary_error: 0.128947
+[92]	valid_set's binary_error: 0.12807
+[93]	valid_set's binary_error: 0.12807
+[94]	valid_set's binary_error: 0.127632
+[95]	valid_set's binary_error: 0.128509
+[96]	valid_set's binary_error: 0.128947
+[97]	valid_set's binary_error: 0.128947
+[98]	valid_set's binary_error: 0.128947
+[99]	valid_set's binary_error: 0.128509
+[100]	valid_set's binary_error: 0.12807
+[101]	valid_set's binary_error: 0.128947
+[102]	valid_set's binary_error: 0.128509
+[103]	valid_set's binary_error: 0.12807
+[104]	valid_set's binary_error: 0.128509
+[105]	valid_set's binary_error: 0.127632
+[106]	valid_set's binary_error: 0.127193
+[107]	valid_set's binary_error: 0.12807
+[108]	valid_set's binary_error: 0.12807
+[109]	valid_set's binary_error: 0.127632
+[110]	valid_set's binary_error: 0.12807
+[111]	valid_set's binary_error: 0.127632
+[112]	valid_set's binary_error: 0.12807
+[113]	valid_set's binary_error: 0.128509
+[114]	valid_set's binary_error: 0.128947
+[115]	valid_set's binary_error: 0.12807
+[116]	valid_set's binary_error: 0.12807
+[117]	valid_set's binary_error: 0.12807
+[118]	valid_set's binary_error: 0.128509
+[119]	valid_set's binary_error: 0.128509
+[120]	valid_set's binary_error: 0.12807
+[121]	valid_set's binary_error: 0.128509
+[122]	valid_set's binary_error: 0.128509
+[123]	valid_set's binary_error: 0.128509
+[124]	valid_set's binary_error: 0.128947
+[125]	valid_set's binary_error: 0.128509
+[126]	valid_set's binary_error: 0.12807
+[127]	valid_set's binary_error: 0.128509
+[128]	valid_set's binary_error: 0.12807
+[129]	valid_set's binary_error: 0.128509
+[130]	valid_set's binary_error: 0.128509
+[131]	valid_set's binary_error: 0.128509
+[132]	valid_set's binary_error: 0.129386
+[133]	valid_set's binary_error: 0.129386
+[134]	valid_set's binary_error: 0.129825
+[135]	valid_set's binary_error: 0.130263
+[136]	valid_set's binary_error: 0.130263
+[137]	valid_set's binary_error: 0.129386
+[138]	valid_set's binary_error: 0.129825
+[139]	valid_set's binary_error: 0.129825
+[140]	valid_set's binary_error: 0.129825
+[141]	valid_set's binary_error: 0.128947
+[142]	valid_set's binary_error: 0.129386
+[143]	valid_set's binary_error: 0.128947
+[144]	valid_set's binary_error: 0.128947
+[145]	valid_set's binary_error: 0.128509
+[146]	valid_set's binary_error: 0.128509
+[147]	valid_set's binary_error: 0.12807
+[148]	valid_set's binary_error: 0.128947
+[149]	valid_set's binary_error: 0.128947
+[150]	valid_set's binary_error: 0.128947
+[151]	valid_set's binary_error: 0.129386
+[152]	valid_set's binary_error: 0.130263
+[153]	valid_set's binary_error: 0.130263
+[154]	valid_set's binary_error: 0.130263
+[155]	valid_set's binary_error: 0.130263
+[156]	valid_set's binary_error: 0.130702
+[157]	valid_set's binary_error: 0.129825
+[158]	valid_set's binary_error: 0.130263
+[159]	valid_set's binary_error: 0.129825
+[160]	valid_set's binary_error: 0.129825
+[161]	valid_set's binary_error: 0.130263
+[162]	valid_set's binary_error: 0.130702
+[163]	valid_set's binary_error: 0.130702
+[164]	valid_set's binary_error: 0.130263
+[165]	valid_set's binary_error: 0.130263
+[166]	valid_set's binary_error: 0.130263
+[167]	valid_set's binary_error: 0.130263
+[168]	valid_set's binary_error: 0.130263
+[169]	valid_set's binary_error: 0.130263
+[170]	valid_set's binary_error: 0.130263
+[171]	valid_set's binary_error: 0.130263
+[172]	valid_set's binary_error: 0.129386
+[173]	valid_set's binary_error: 0.129386
+[174]	valid_set's binary_error: 0.129386
+[175]	valid_set's binary_error: 0.129386
+[176]	valid_set's binary_error: 0.129825
+[177]	valid_set's binary_error: 0.129825
+[178]	valid_set's binary_error: 0.128947
+[179]	valid_set's binary_error: 0.129386
+[180]	valid_set's binary_error: 0.128947
+[181]	valid_set's binary_error: 0.129386
+[182]	valid_set's binary_error: 0.129386
+[183]	valid_set's binary_error: 0.129386
+[184]	valid_set's binary_error: 0.130263
+[185]	valid_set's binary_error: 0.130263
+[186]	valid_set's binary_error: 0.130702
+[187]	valid_set's binary_error: 0.130702
+[188]	valid_set's binary_error: 0.130263
+[189]	valid_set's binary_error: 0.130263
+[190]	valid_set's binary_error: 0.130263
+[191]	valid_set's binary_error: 0.129386
+[192]	valid_set's binary_error: 0.129386
+[193]	valid_set's binary_error: 0.129825
+[194]	valid_set's binary_error: 0.129825
+[195]	valid_set's binary_error: 0.130263
+[196]	valid_set's binary_error: 0.130263
+[197]	valid_set's binary_error: 0.129825
+[198]	valid_set's binary_error: 0.129825
+[199]	valid_set's binary_error: 0.129825
+[200]	valid_set's binary_error: 0.129825
+[201]	valid_set's binary_error: 0.129825
+[202]	valid_set's binary_error: 0.130263
+[203]	valid_set's binary_error: 0.130263
+[204]	valid_set's binary_error: 0.128947
+[205]	valid_set's binary_error: 0.128947
+[206]	valid_set's binary_error: 0.129386
+[207]	valid_set's binary_error: 0.129386
+[208]	valid_set's binary_error: 0.129386
+[209]	valid_set's binary_error: 0.129386
+[210]	valid_set's binary_error: 0.128947
+[211]	valid_set's binary_error: 0.128947
+[212]	valid_set's binary_error: 0.128947
+[213]	valid_set's binary_error: 0.128947
+[214]	valid_set's binary_error: 0.128947
+[215]	valid_set's binary_error: 0.128947
+[216]	valid_set's binary_error: 0.128947
+[217]	valid_set's binary_error: 0.128947
+[218]	valid_set's binary_error: 0.128947
+[219]	valid_set's binary_error: 0.129386
+[220]	valid_set's binary_error: 0.129825
+[221]	valid_set's binary_error: 0.129825
+[222]	valid_set's binary_error: 0.129825
+[223]	valid_set's binary_error: 0.129825
+[224]	valid_set's binary_error: 0.129825
+[225]	valid_set's binary_error: 0.129825
+[226]	valid_set's binary_error: 0.129825
+[227]	valid_set's binary_error: 0.129386
+[228]	valid_set's binary_error: 0.129386
+[229]	valid_set's binary_error: 0.129386
+Saving AutogluonModels\ag-20240608_102347\models\LightGBMXT\model.pkl
+Saving AutogluonModels\ag-20240608_102347\utils\attr\LightGBMXT\y_pred_proba_val.pkl
+	0.8737	 = Validation score   (accuracy)
+	0.62s	 = Training   runtime
+	0.01s	 = Validation runtime
+Saving AutogluonModels\ag-20240608_102347\models\trainer.pkl
+Fitting model: LightGBM ...
+	Dropped 0 of 14 features.
+	Fitting LightGBM with 'num_gpus': 0, 'num_cpus': 4
+	Fitting 10000 rounds... Hyperparameters: {'learning_rate': 0.05}
+[1]	valid_set's binary_error: 0.240789
+[2]	valid_set's binary_error: 0.240789
+[3]	valid_set's binary_error: 0.240789
+[4]	valid_set's binary_error: 0.240789
+[5]	valid_set's binary_error: 0.240789
+[6]	valid_set's binary_error: 0.240789
+[7]	valid_set's binary_error: 0.240789
+[8]	valid_set's binary_error: 0.224123
+[9]	valid_set's binary_error: 0.189474
+[10]	valid_set's binary_error: 0.188596
+[11]	valid_set's binary_error: 0.185088
+[12]	valid_set's binary_error: 0.182456
+[13]	valid_set's binary_error: 0.182456
+[14]	valid_set's binary_error: 0.182456
+[15]	valid_set's binary_error: 0.151316
+[16]	valid_set's binary_error: 0.149561
+[17]	valid_set's binary_error: 0.145614
+[18]	valid_set's binary_error: 0.144737
+[19]	valid_set's binary_error: 0.145614
+[20]	valid_set's binary_error: 0.144737
+[21]	valid_set's binary_error: 0.142982
+[22]	valid_set's binary_error: 0.142105
+[23]	valid_set's binary_error: 0.139912
+[24]	valid_set's binary_error: 0.136842
+[25]	valid_set's binary_error: 0.135965
+[26]	valid_set's binary_error: 0.134649
+[27]	valid_set's binary_error: 0.132895
+[28]	valid_set's binary_error: 0.131579
+[29]	valid_set's binary_error: 0.131579
+[30]	valid_set's binary_error: 0.13114
+[31]	valid_set's binary_error: 0.129386
+[32]	valid_set's binary_error: 0.129825
+[33]	valid_set's binary_error: 0.128947
+[34]	valid_set's binary_error: 0.128947
+[35]	valid_set's binary_error: 0.127632
+[36]	valid_set's binary_error: 0.127193
+[37]	valid_set's binary_error: 0.126754
+[38]	valid_set's binary_error: 0.127632
+[39]	valid_set's binary_error: 0.12807
+[40]	valid_set's binary_error: 0.126316
+[41]	valid_set's binary_error: 0.126754
+[42]	valid_set's binary_error: 0.126754
+[43]	valid_set's binary_error: 0.127632
+[44]	valid_set's binary_error: 0.127632
+[45]	valid_set's binary_error: 0.128947
+[46]	valid_set's binary_error: 0.129386
+[47]	valid_set's binary_error: 0.128947
+[48]	valid_set's binary_error: 0.128947
+[49]	valid_set's binary_error: 0.128509
+[50]	valid_set's binary_error: 0.128947
+[51]	valid_set's binary_error: 0.128509
+[52]	valid_set's binary_error: 0.127632
+[53]	valid_set's binary_error: 0.128947
+[54]	valid_set's binary_error: 0.128509
+[55]	valid_set's binary_error: 0.127193
+[56]	valid_set's binary_error: 0.127632
+[57]	valid_set's binary_error: 0.126754
+[58]	valid_set's binary_error: 0.126316
+[59]	valid_set's binary_error: 0.126754
+[60]	valid_set's binary_error: 0.126316
+[61]	valid_set's binary_error: 0.126316
+[62]	valid_set's binary_error: 0.125
+[63]	valid_set's binary_error: 0.125
+[64]	valid_set's binary_error: 0.125877
+[65]	valid_set's binary_error: 0.125
+[66]	valid_set's binary_error: 0.124123
+[67]	valid_set's binary_error: 0.124123
+[68]	valid_set's binary_error: 0.124561
+[69]	valid_set's binary_error: 0.124561
+[70]	valid_set's binary_error: 0.124561
+[71]	valid_set's binary_error: 0.124561
+[72]	valid_set's binary_error: 0.125
+[73]	valid_set's binary_error: 0.124561
+[74]	valid_set's binary_error: 0.124561
+[75]	valid_set's binary_error: 0.124123
+[76]	valid_set's binary_error: 0.124123
+[77]	valid_set's binary_error: 0.124561
+[78]	valid_set's binary_error: 0.124561
+[79]	valid_set's binary_error: 0.125
+[80]	valid_set's binary_error: 0.124123
+[81]	valid_set's binary_error: 0.123684
+[82]	valid_set's binary_error: 0.123684
+[83]	valid_set's binary_error: 0.123246
+[84]	valid_set's binary_error: 0.12193
+[85]	valid_set's binary_error: 0.12193
+[86]	valid_set's binary_error: 0.121491
+[87]	valid_set's binary_error: 0.12193
+[88]	valid_set's binary_error: 0.122807
+[89]	valid_set's binary_error: 0.123246
+[90]	valid_set's binary_error: 0.12193
+[91]	valid_set's binary_error: 0.121491
+[92]	valid_set's binary_error: 0.121491
+[93]	valid_set's binary_error: 0.12193
+[94]	valid_set's binary_error: 0.121491
+[95]	valid_set's binary_error: 0.12193
+[96]	valid_set's binary_error: 0.12193
+[97]	valid_set's binary_error: 0.121491
+[98]	valid_set's binary_error: 0.121491
+[99]	valid_set's binary_error: 0.120614
+[100]	valid_set's binary_error: 0.120614
+[101]	valid_set's binary_error: 0.121053
+[102]	valid_set's binary_error: 0.12193
+[103]	valid_set's binary_error: 0.122807
+[104]	valid_set's binary_error: 0.122807
+[105]	valid_set's binary_error: 0.121491
+[106]	valid_set's binary_error: 0.122368
+[107]	valid_set's binary_error: 0.121491
+[108]	valid_set's binary_error: 0.121491
+[109]	valid_set's binary_error: 0.121491
+[110]	valid_set's binary_error: 0.121491
+[111]	valid_set's binary_error: 0.12193
+[112]	valid_set's binary_error: 0.122368
+[113]	valid_set's binary_error: 0.122368
+[114]	valid_set's binary_error: 0.121053
+[115]	valid_set's binary_error: 0.121491
+[116]	valid_set's binary_error: 0.122368
+[117]	valid_set's binary_error: 0.12193
+[118]	valid_set's binary_error: 0.12193
+[119]	valid_set's binary_error: 0.12193
+[120]	valid_set's binary_error: 0.12193
+[121]	valid_set's binary_error: 0.122368
+[122]	valid_set's binary_error: 0.122368
+[123]	valid_set's binary_error: 0.122807
+[124]	valid_set's binary_error: 0.122368
+[125]	valid_set's binary_error: 0.12193
+[126]	valid_set's binary_error: 0.12193
+[127]	valid_set's binary_error: 0.12193
+[128]	valid_set's binary_error: 0.12193
+[129]	valid_set's binary_error: 0.12193
+[130]	valid_set's binary_error: 0.12193
+[131]	valid_set's binary_error: 0.12193
+[132]	valid_set's binary_error: 0.122368
+[133]	valid_set's binary_error: 0.12193
+[134]	valid_set's binary_error: 0.12193
+[135]	valid_set's binary_error: 0.12193
+[136]	valid_set's binary_error: 0.122368
+[137]	valid_set's binary_error: 0.122368
+[138]	valid_set's binary_error: 0.122807
+[139]	valid_set's binary_error: 0.122368
+[140]	valid_set's binary_error: 0.122368
+[141]	valid_set's binary_error: 0.122368
+[142]	valid_set's binary_error: 0.122368
+[143]	valid_set's binary_error: 0.121491
+[144]	valid_set's binary_error: 0.121053
+[145]	valid_set's binary_error: 0.121491
+[146]	valid_set's binary_error: 0.121053
+[147]	valid_set's binary_error: 0.121053
+[148]	valid_set's binary_error: 0.121053
+[149]	valid_set's binary_error: 0.121053
+[150]	valid_set's binary_error: 0.121053
+[151]	valid_set's binary_error: 0.121053
+[152]	valid_set's binary_error: 0.12193
+[153]	valid_set's binary_error: 0.121491
+[154]	valid_set's binary_error: 0.121491
+[155]	valid_set's binary_error: 0.121491
+[156]	valid_set's binary_error: 0.121053
+[157]	valid_set's binary_error: 0.121053
+[158]	valid_set's binary_error: 0.121053
+[159]	valid_set's binary_error: 0.120614
+[160]	valid_set's binary_error: 0.120614
+[161]	valid_set's binary_error: 0.120614
+[162]	valid_set's binary_error: 0.121491
+[163]	valid_set's binary_error: 0.121491
+[164]	valid_set's binary_error: 0.121053
+[165]	valid_set's binary_error: 0.121053
+[166]	valid_set's binary_error: 0.121491
+[167]	valid_set's binary_error: 0.121053
+[168]	valid_set's binary_error: 0.121053
+[169]	valid_set's binary_error: 0.122368
+[170]	valid_set's binary_error: 0.121491
+[171]	valid_set's binary_error: 0.121491
+[172]	valid_set's binary_error: 0.12193
+[173]	valid_set's binary_error: 0.122368
+[174]	valid_set's binary_error: 0.122368
+[175]	valid_set's binary_error: 0.122368
+[176]	valid_set's binary_error: 0.122368
+[177]	valid_set's binary_error: 0.122807
+[178]	valid_set's binary_error: 0.123246
+[179]	valid_set's binary_error: 0.123246
+[180]	valid_set's binary_error: 0.123246
+[181]	valid_set's binary_error: 0.123246
+[182]	valid_set's binary_error: 0.123246
+[183]	valid_set's binary_error: 0.123246
+[184]	valid_set's binary_error: 0.123246
+[185]	valid_set's binary_error: 0.123246
+[186]	valid_set's binary_error: 0.122807
+[187]	valid_set's binary_error: 0.123246
+[188]	valid_set's binary_error: 0.123246
+[189]	valid_set's binary_error: 0.123246
+[190]	valid_set's binary_error: 0.123246
+[191]	valid_set's binary_error: 0.122807
+[192]	valid_set's binary_error: 0.122368
+[193]	valid_set's binary_error: 0.122368
+[194]	valid_set's binary_error: 0.122368
+[195]	valid_set's binary_error: 0.122368
+[196]	valid_set's binary_error: 0.122368
+[197]	valid_set's binary_error: 0.122368
+[198]	valid_set's binary_error: 0.122368
+[199]	valid_set's binary_error: 0.12193
+[200]	valid_set's binary_error: 0.12193
+[201]	valid_set's binary_error: 0.12193
+[202]	valid_set's binary_error: 0.12193
+[203]	valid_set's binary_error: 0.12193
+[204]	valid_set's binary_error: 0.121053
+[205]	valid_set's binary_error: 0.120614
+[206]	valid_set's binary_error: 0.120614
+[207]	valid_set's binary_error: 0.120614
+[208]	valid_set's binary_error: 0.120614
+[209]	valid_set's binary_error: 0.121053
+[210]	valid_set's binary_error: 0.121491
+[211]	valid_set's binary_error: 0.12193
+[212]	valid_set's binary_error: 0.121491
+[213]	valid_set's binary_error: 0.12193
+[214]	valid_set's binary_error: 0.12193
+[215]	valid_set's binary_error: 0.12193
+[216]	valid_set's binary_error: 0.121491
+[217]	valid_set's binary_error: 0.121491
+[218]	valid_set's binary_error: 0.121053
+[219]	valid_set's binary_error: 0.121053
+[220]	valid_set's binary_error: 0.121053
+[221]	valid_set's binary_error: 0.121053
+[222]	valid_set's binary_error: 0.121491
+[223]	valid_set's binary_error: 0.121491
+[224]	valid_set's binary_error: 0.12193
+[225]	valid_set's binary_error: 0.121053
+[226]	valid_set's binary_error: 0.121053
+[227]	valid_set's binary_error: 0.121053
+[228]	valid_set's binary_error: 0.121053
+[229]	valid_set's binary_error: 0.121053
+[230]	valid_set's binary_error: 0.121053
+[231]	valid_set's binary_error: 0.121053
+[232]	valid_set's binary_error: 0.120614
+[233]	valid_set's binary_error: 0.121053
+[234]	valid_set's binary_error: 0.120614
+[235]	valid_set's binary_error: 0.121053
+[236]	valid_set's binary_error: 0.121053
+[237]	valid_set's binary_error: 0.121053
+[238]	valid_set's binary_error: 0.121053
+[239]	valid_set's binary_error: 0.121491
+[240]	valid_set's binary_error: 0.121491
+[241]	valid_set's binary_error: 0.12193
+[242]	valid_set's binary_error: 0.12193
+[243]	valid_set's binary_error: 0.12193
+[244]	valid_set's binary_error: 0.12193
+[245]	valid_set's binary_error: 0.122368
+Saving AutogluonModels\ag-20240608_102347\models\LightGBM\model.pkl
+Saving AutogluonModels\ag-20240608_102347\utils\attr\LightGBM\y_pred_proba_val.pkl
+	0.8794	 = Validation score   (accuracy)
+	0.5s	 = Training   runtime
+	0.01s	 = Validation runtime
+Saving AutogluonModels\ag-20240608_102347\models\trainer.pkl
+Fitting model: RandomForestGini ...
+	Dropped 0 of 14 features.
+	Fitting RandomForestGini with 'num_gpus': 0, 'num_cpus': 8
+Saving AutogluonModels\ag-20240608_102347\models\RandomForestGini\model.pkl
+Saving AutogluonModels\ag-20240608_102347\utils\attr\RandomForestGini\y_pred_proba_val.pkl
+	0.8658	 = Validation score   (accuracy)
+	1.22s	 = Training   runtime
+	0.05s	 = Validation runtime
+Saving AutogluonModels\ag-20240608_102347\models\trainer.pkl
+Fitting model: RandomForestEntr ...
+	Dropped 0 of 14 features.
+	Fitting RandomForestEntr with 'num_gpus': 0, 'num_cpus': 8
+Saving AutogluonModels\ag-20240608_102347\models\RandomForestEntr\model.pkl
+Saving AutogluonModels\ag-20240608_102347\utils\attr\RandomForestEntr\y_pred_proba_val.pkl
+	0.8645	 = Validation score   (accuracy)
+	1.4s	 = Training   runtime
+	0.06s	 = Validation runtime
+Saving AutogluonModels\ag-20240608_102347\models\trainer.pkl
+Fitting model: CatBoost ...
+	Dropped 0 of 14 features.
+	Fitting CatBoost with 'num_gpus': 0, 'num_cpus': 4
+	Catboost model hyperparameters: {'iterations': 10000, 'learning_rate': 0.05, 'random_seed': 0, 'allow_writing_files': False, 'eval_metric': 'Accuracy', 'thread_count': 4}
+0:	learn: 0.8431162	test: 0.8399123	best: 0.8399123 (0)	total: 208ms	remaining: 34m 41s
+1:	learn: 0.8475527	test: 0.8456140	best: 0.8456140 (1)	total: 254ms	remaining: 21m 9s
+2:	learn: 0.8456513	test: 0.8456140	best: 0.8456140 (1)	total: 292ms	remaining: 16m 13s
+3:	learn: 0.8458951	test: 0.8438596	best: 0.8456140 (1)	total: 341ms	remaining: 14m 12s
+4:	learn: 0.8450176	test: 0.8442982	best: 0.8456140 (1)	total: 391ms	remaining: 13m
+5:	learn: 0.8447738	test: 0.8429825	best: 0.8456140 (1)	total: 440ms	remaining: 12m 13s
+6:	learn: 0.8492102	test: 0.8464912	best: 0.8464912 (6)	total: 491ms	remaining: 11m 41s
+7:	learn: 0.8505265	test: 0.8495614	best: 0.8495614 (7)	total: 538ms	remaining: 11m 11s
+8:	learn: 0.8510628	test: 0.8513158	best: 0.8513158 (8)	total: 585ms	remaining: 10m 49s
+9:	learn: 0.8522328	test: 0.8513158	best: 0.8513158 (8)	total: 629ms	remaining: 10m 28s
+10:	learn: 0.8525254	test: 0.8517544	best: 0.8517544 (10)	total: 684ms	remaining: 10m 21s
+11:	learn: 0.8529641	test: 0.8521930	best: 0.8521930 (11)	total: 731ms	remaining: 10m 8s
+12:	learn: 0.8529641	test: 0.8508772	best: 0.8521930 (11)	total: 775ms	remaining: 9m 55s
+13:	learn: 0.8529641	test: 0.8513158	best: 0.8521930 (11)	total: 818ms	remaining: 9m 43s
+14:	learn: 0.8536466	test: 0.8513158	best: 0.8521930 (11)	total: 863ms	remaining: 9m 34s
+15:	learn: 0.8539879	test: 0.8526316	best: 0.8526316 (15)	total: 910ms	remaining: 9m 27s
+16:	learn: 0.8538417	test: 0.8521930	best: 0.8526316 (15)	total: 963ms	remaining: 9m 25s
+17:	learn: 0.8544267	test: 0.8526316	best: 0.8526316 (15)	total: 1.01s	remaining: 9m 18s
+18:	learn: 0.8543292	test: 0.8526316	best: 0.8526316 (15)	total: 1.05s	remaining: 9m 14s
+19:	learn: 0.8541829	test: 0.8530702	best: 0.8530702 (19)	total: 1.1s	remaining: 9m 7s
+20:	learn: 0.8549629	test: 0.8552632	best: 0.8552632 (20)	total: 1.15s	remaining: 9m 5s
+21:	learn: 0.8557430	test: 0.8565789	best: 0.8565789 (21)	total: 1.2s	remaining: 9m 4s
+22:	learn: 0.8561817	test: 0.8583333	best: 0.8583333 (22)	total: 1.24s	remaining: 8m 59s
+23:	learn: 0.8566205	test: 0.8578947	best: 0.8583333 (22)	total: 1.29s	remaining: 8m 56s
+24:	learn: 0.8568643	test: 0.8578947	best: 0.8583333 (22)	total: 1.34s	remaining: 8m 54s
+25:	learn: 0.8570105	test: 0.8578947	best: 0.8583333 (22)	total: 1.38s	remaining: 8m 49s
+26:	learn: 0.8575468	test: 0.8614035	best: 0.8614035 (26)	total: 1.43s	remaining: 8m 48s
+27:	learn: 0.8579856	test: 0.8614035	best: 0.8614035 (26)	total: 1.48s	remaining: 8m 45s
+28:	learn: 0.8584243	test: 0.8614035	best: 0.8614035 (26)	total: 1.52s	remaining: 8m 43s
+29:	learn: 0.8585218	test: 0.8618421	best: 0.8618421 (29)	total: 1.57s	remaining: 8m 40s
+30:	learn: 0.8585218	test: 0.8614035	best: 0.8618421 (29)	total: 1.62s	remaining: 8m 40s
+31:	learn: 0.8592531	test: 0.8614035	best: 0.8618421 (29)	total: 1.67s	remaining: 8m 38s
+32:	learn: 0.8590581	test: 0.8618421	best: 0.8618421 (29)	total: 1.71s	remaining: 8m 36s
+33:	learn: 0.8594969	test: 0.8605263	best: 0.8618421 (29)	total: 1.76s	remaining: 8m 37s
+34:	learn: 0.8593506	test: 0.8605263	best: 0.8618421 (29)	total: 1.81s	remaining: 8m 36s
+35:	learn: 0.8596431	test: 0.8622807	best: 0.8622807 (35)	total: 1.87s	remaining: 8m 37s
+36:	learn: 0.8597894	test: 0.8627193	best: 0.8627193 (36)	total: 1.91s	remaining: 8m 35s
+37:	learn: 0.8600819	test: 0.8635965	best: 0.8635965 (37)	total: 1.96s	remaining: 8m 33s
+38:	learn: 0.8599844	test: 0.8627193	best: 0.8635965 (37)	total: 2s	remaining: 8m 30s
+39:	learn: 0.8606182	test: 0.8635965	best: 0.8635965 (37)	total: 2.05s	remaining: 8m 30s
+40:	learn: 0.8608619	test: 0.8644737	best: 0.8644737 (40)	total: 2.1s	remaining: 8m 30s
+41:	learn: 0.8614957	test: 0.8657895	best: 0.8657895 (41)	total: 2.15s	remaining: 8m 30s
+42:	learn: 0.8614470	test: 0.8657895	best: 0.8657895 (41)	total: 2.2s	remaining: 8m 28s
+43:	learn: 0.8623245	test: 0.8653509	best: 0.8657895 (41)	total: 2.24s	remaining: 8m 27s
+44:	learn: 0.8625683	test: 0.8649123	best: 0.8657895 (41)	total: 2.29s	remaining: 8m 26s
+45:	learn: 0.8623245	test: 0.8649123	best: 0.8657895 (41)	total: 2.35s	remaining: 8m 27s
+46:	learn: 0.8626658	test: 0.8662281	best: 0.8662281 (46)	total: 2.41s	remaining: 8m 30s
+47:	learn: 0.8627633	test: 0.8649123	best: 0.8662281 (46)	total: 2.47s	remaining: 8m 31s
+48:	learn: 0.8627633	test: 0.8649123	best: 0.8662281 (46)	total: 2.52s	remaining: 8m 30s
+49:	learn: 0.8625195	test: 0.8649123	best: 0.8662281 (46)	total: 2.56s	remaining: 8m 30s
+50:	learn: 0.8631045	test: 0.8657895	best: 0.8662281 (46)	total: 2.62s	remaining: 8m 30s
+51:	learn: 0.8627633	test: 0.8662281	best: 0.8662281 (46)	total: 2.66s	remaining: 8m 29s
+52:	learn: 0.8634458	test: 0.8657895	best: 0.8662281 (46)	total: 2.71s	remaining: 8m 28s
+53:	learn: 0.8633970	test: 0.8666667	best: 0.8666667 (53)	total: 2.76s	remaining: 8m 27s
+54:	learn: 0.8637383	test: 0.8662281	best: 0.8666667 (53)	total: 2.82s	remaining: 8m 29s
+55:	learn: 0.8641283	test: 0.8662281	best: 0.8666667 (53)	total: 2.86s	remaining: 8m 28s
+56:	learn: 0.8641771	test: 0.8666667	best: 0.8666667 (53)	total: 2.91s	remaining: 8m 27s
+57:	learn: 0.8640796	test: 0.8662281	best: 0.8666667 (53)	total: 2.96s	remaining: 8m 27s
+58:	learn: 0.8644696	test: 0.8662281	best: 0.8666667 (53)	total: 3.01s	remaining: 8m 26s
+59:	learn: 0.8646646	test: 0.8657895	best: 0.8666667 (53)	total: 3.06s	remaining: 8m 26s
+60:	learn: 0.8647621	test: 0.8666667	best: 0.8666667 (53)	total: 3.11s	remaining: 8m 26s
+61:	learn: 0.8648108	test: 0.8666667	best: 0.8666667 (53)	total: 3.15s	remaining: 8m 25s
+62:	learn: 0.8647133	test: 0.8675439	best: 0.8675439 (62)	total: 3.2s	remaining: 8m 25s
+63:	learn: 0.8652009	test: 0.8684211	best: 0.8684211 (63)	total: 3.25s	remaining: 8m 24s
+64:	learn: 0.8650059	test: 0.8684211	best: 0.8684211 (63)	total: 3.3s	remaining: 8m 24s
+65:	learn: 0.8649083	test: 0.8675439	best: 0.8684211 (63)	total: 3.35s	remaining: 8m 24s
+66:	learn: 0.8654934	test: 0.8666667	best: 0.8684211 (63)	total: 3.4s	remaining: 8m 23s
+67:	learn: 0.8655909	test: 0.8671053	best: 0.8684211 (63)	total: 3.44s	remaining: 8m 23s
+68:	learn: 0.8659321	test: 0.8671053	best: 0.8684211 (63)	total: 3.49s	remaining: 8m 23s
+69:	learn: 0.8660784	test: 0.8666667	best: 0.8684211 (63)	total: 3.55s	remaining: 8m 24s
+70:	learn: 0.8661759	test: 0.8688596	best: 0.8688596 (70)	total: 3.6s	remaining: 8m 23s
+71:	learn: 0.8664197	test: 0.8684211	best: 0.8688596 (70)	total: 3.65s	remaining: 8m 23s
+72:	learn: 0.8663709	test: 0.8684211	best: 0.8688596 (70)	total: 3.7s	remaining: 8m 22s
+73:	learn: 0.8665172	test: 0.8688596	best: 0.8688596 (70)	total: 3.74s	remaining: 8m 22s
+74:	learn: 0.8665659	test: 0.8697368	best: 0.8697368 (74)	total: 3.8s	remaining: 8m 22s
+75:	learn: 0.8665172	test: 0.8697368	best: 0.8697368 (74)	total: 3.85s	remaining: 8m 22s
+76:	learn: 0.8664197	test: 0.8688596	best: 0.8697368 (74)	total: 3.89s	remaining: 8m 21s
+77:	learn: 0.8667122	test: 0.8688596	best: 0.8697368 (74)	total: 3.94s	remaining: 8m 20s
+78:	learn: 0.8666634	test: 0.8701754	best: 0.8701754 (78)	total: 3.98s	remaining: 8m 20s
+79:	learn: 0.8667122	test: 0.8692982	best: 0.8701754 (78)	total: 4.04s	remaining: 8m 20s
+80:	learn: 0.8671509	test: 0.8688596	best: 0.8701754 (78)	total: 4.09s	remaining: 8m 21s
+81:	learn: 0.8672484	test: 0.8688596	best: 0.8701754 (78)	total: 4.14s	remaining: 8m 21s
+82:	learn: 0.8672484	test: 0.8688596	best: 0.8701754 (78)	total: 4.19s	remaining: 8m 21s
+83:	learn: 0.8672972	test: 0.8697368	best: 0.8701754 (78)	total: 4.25s	remaining: 8m 21s
+84:	learn: 0.8673459	test: 0.8701754	best: 0.8701754 (78)	total: 4.3s	remaining: 8m 21s
+85:	learn: 0.8672972	test: 0.8706140	best: 0.8706140 (85)	total: 4.34s	remaining: 8m 20s
+86:	learn: 0.8671997	test: 0.8701754	best: 0.8706140 (85)	total: 4.39s	remaining: 8m 20s
+87:	learn: 0.8672972	test: 0.8706140	best: 0.8706140 (85)	total: 4.43s	remaining: 8m 19s
+88:	learn: 0.8673947	test: 0.8697368	best: 0.8706140 (85)	total: 4.49s	remaining: 8m 19s
+89:	learn: 0.8674434	test: 0.8701754	best: 0.8706140 (85)	total: 4.54s	remaining: 8m 19s
+90:	learn: 0.8675897	test: 0.8706140	best: 0.8706140 (85)	total: 4.59s	remaining: 8m 19s
+91:	learn: 0.8678822	test: 0.8701754	best: 0.8706140 (85)	total: 4.63s	remaining: 8m 18s
+92:	learn: 0.8679310	test: 0.8706140	best: 0.8706140 (85)	total: 4.68s	remaining: 8m 18s
+93:	learn: 0.8680285	test: 0.8697368	best: 0.8706140 (85)	total: 4.73s	remaining: 8m 18s
+94:	learn: 0.8677847	test: 0.8701754	best: 0.8706140 (85)	total: 4.78s	remaining: 8m 18s
+95:	learn: 0.8677847	test: 0.8706140	best: 0.8706140 (85)	total: 4.82s	remaining: 8m 17s
+96:	learn: 0.8678335	test: 0.8706140	best: 0.8706140 (85)	total: 4.87s	remaining: 8m 16s
+97:	learn: 0.8680285	test: 0.8719298	best: 0.8719298 (97)	total: 4.91s	remaining: 8m 15s
+98:	learn: 0.8680772	test: 0.8719298	best: 0.8719298 (97)	total: 4.96s	remaining: 8m 16s
+99:	learn: 0.8683697	test: 0.8719298	best: 0.8719298 (97)	total: 5.01s	remaining: 8m 16s
+100:	learn: 0.8683210	test: 0.8723684	best: 0.8723684 (100)	total: 5.06s	remaining: 8m 15s
+101:	learn: 0.8683697	test: 0.8714912	best: 0.8723684 (100)	total: 5.1s	remaining: 8m 15s
+102:	learn: 0.8686135	test: 0.8714912	best: 0.8723684 (100)	total: 5.15s	remaining: 8m 14s
+103:	learn: 0.8691498	test: 0.8714912	best: 0.8723684 (100)	total: 5.21s	remaining: 8m 15s
+104:	learn: 0.8691010	test: 0.8714912	best: 0.8723684 (100)	total: 5.25s	remaining: 8m 14s
+105:	learn: 0.8691498	test: 0.8719298	best: 0.8723684 (100)	total: 5.3s	remaining: 8m 14s
+106:	learn: 0.8692473	test: 0.8706140	best: 0.8723684 (100)	total: 5.34s	remaining: 8m 13s
+107:	learn: 0.8693448	test: 0.8706140	best: 0.8723684 (100)	total: 5.39s	remaining: 8m 13s
+108:	learn: 0.8690523	test: 0.8706140	best: 0.8723684 (100)	total: 5.44s	remaining: 8m 13s
+109:	learn: 0.8690523	test: 0.8706140	best: 0.8723684 (100)	total: 5.49s	remaining: 8m 13s
+110:	learn: 0.8691010	test: 0.8706140	best: 0.8723684 (100)	total: 5.54s	remaining: 8m 13s
+111:	learn: 0.8691498	test: 0.8706140	best: 0.8723684 (100)	total: 5.58s	remaining: 8m 12s
+112:	learn: 0.8691985	test: 0.8706140	best: 0.8723684 (100)	total: 5.63s	remaining: 8m 12s
+113:	learn: 0.8693448	test: 0.8706140	best: 0.8723684 (100)	total: 5.68s	remaining: 8m 12s
+114:	learn: 0.8697348	test: 0.8706140	best: 0.8723684 (100)	total: 5.73s	remaining: 8m 12s
+115:	learn: 0.8697348	test: 0.8706140	best: 0.8723684 (100)	total: 5.78s	remaining: 8m 12s
+116:	learn: 0.8697835	test: 0.8710526	best: 0.8723684 (100)	total: 5.82s	remaining: 8m 11s
+117:	learn: 0.8700761	test: 0.8714912	best: 0.8723684 (100)	total: 5.87s	remaining: 8m 11s
+118:	learn: 0.8701248	test: 0.8723684	best: 0.8723684 (100)	total: 5.92s	remaining: 8m 11s
+119:	learn: 0.8700273	test: 0.8723684	best: 0.8723684 (100)	total: 5.97s	remaining: 8m 11s
+120:	learn: 0.8702223	test: 0.8728070	best: 0.8728070 (120)	total: 6.02s	remaining: 8m 11s
+121:	learn: 0.8702223	test: 0.8723684	best: 0.8728070 (120)	total: 6.06s	remaining: 8m 10s
+122:	learn: 0.8700761	test: 0.8723684	best: 0.8728070 (120)	total: 6.11s	remaining: 8m 10s
+123:	learn: 0.8702223	test: 0.8719298	best: 0.8728070 (120)	total: 6.17s	remaining: 8m 11s
+124:	learn: 0.8703198	test: 0.8719298	best: 0.8728070 (120)	total: 6.21s	remaining: 8m 10s
+125:	learn: 0.8702223	test: 0.8719298	best: 0.8728070 (120)	total: 6.26s	remaining: 8m 10s
+126:	learn: 0.8701248	test: 0.8719298	best: 0.8728070 (120)	total: 6.3s	remaining: 8m 10s
+127:	learn: 0.8702711	test: 0.8719298	best: 0.8728070 (120)	total: 6.35s	remaining: 8m 9s
+128:	learn: 0.8703686	test: 0.8719298	best: 0.8728070 (120)	total: 6.4s	remaining: 8m 9s
+129:	learn: 0.8704661	test: 0.8714912	best: 0.8728070 (120)	total: 6.45s	remaining: 8m 9s
+130:	learn: 0.8706123	test: 0.8714912	best: 0.8728070 (120)	total: 6.49s	remaining: 8m 9s
+131:	learn: 0.8709536	test: 0.8723684	best: 0.8728070 (120)	total: 6.54s	remaining: 8m 9s
+132:	learn: 0.8707586	test: 0.8728070	best: 0.8728070 (120)	total: 6.59s	remaining: 8m 9s
+133:	learn: 0.8709536	test: 0.8728070	best: 0.8728070 (120)	total: 6.65s	remaining: 8m 9s
+134:	learn: 0.8709536	test: 0.8728070	best: 0.8728070 (120)	total: 6.68s	remaining: 8m 8s
+135:	learn: 0.8707586	test: 0.8728070	best: 0.8728070 (120)	total: 6.72s	remaining: 8m 7s
+136:	learn: 0.8707586	test: 0.8736842	best: 0.8736842 (136)	total: 6.77s	remaining: 8m 7s
+137:	learn: 0.8708073	test: 0.8736842	best: 0.8736842 (136)	total: 6.81s	remaining: 8m 6s
+138:	learn: 0.8710511	test: 0.8736842	best: 0.8736842 (136)	total: 6.86s	remaining: 8m 6s
+139:	learn: 0.8710023	test: 0.8736842	best: 0.8736842 (136)	total: 6.91s	remaining: 8m 6s
+140:	learn: 0.8710023	test: 0.8736842	best: 0.8736842 (136)	total: 6.96s	remaining: 8m 6s
+141:	learn: 0.8711486	test: 0.8741228	best: 0.8741228 (141)	total: 7s	remaining: 8m 6s
+142:	learn: 0.8711973	test: 0.8745614	best: 0.8745614 (142)	total: 7.05s	remaining: 8m 5s
+143:	learn: 0.8713436	test: 0.8745614	best: 0.8745614 (142)	total: 7.1s	remaining: 8m 6s
+144:	learn: 0.8713436	test: 0.8745614	best: 0.8745614 (142)	total: 7.15s	remaining: 8m 5s
+145:	learn: 0.8713436	test: 0.8750000	best: 0.8750000 (145)	total: 7.17s	remaining: 8m 3s
+146:	learn: 0.8714899	test: 0.8750000	best: 0.8750000 (145)	total: 7.21s	remaining: 8m 3s
+147:	learn: 0.8714411	test: 0.8750000	best: 0.8750000 (145)	total: 7.26s	remaining: 8m 3s
+148:	learn: 0.8714411	test: 0.8750000	best: 0.8750000 (145)	total: 7.28s	remaining: 8m 1s
+149:	learn: 0.8713436	test: 0.8750000	best: 0.8750000 (145)	total: 7.33s	remaining: 8m 1s
+150:	learn: 0.8713436	test: 0.8754386	best: 0.8754386 (150)	total: 7.39s	remaining: 8m 1s
+151:	learn: 0.8713924	test: 0.8754386	best: 0.8754386 (150)	total: 7.43s	remaining: 8m 1s
+152:	learn: 0.8714899	test: 0.8754386	best: 0.8754386 (150)	total: 7.48s	remaining: 8m 1s
+153:	learn: 0.8714411	test: 0.8758772	best: 0.8758772 (153)	total: 7.52s	remaining: 8m 1s
+154:	learn: 0.8715874	test: 0.8754386	best: 0.8758772 (153)	total: 7.58s	remaining: 8m 1s
+155:	learn: 0.8715874	test: 0.8763158	best: 0.8763158 (155)	total: 7.63s	remaining: 8m 1s
+156:	learn: 0.8717336	test: 0.8763158	best: 0.8763158 (155)	total: 7.67s	remaining: 8m
+157:	learn: 0.8718799	test: 0.8758772	best: 0.8763158 (155)	total: 7.72s	remaining: 8m
+158:	learn: 0.8719774	test: 0.8758772	best: 0.8763158 (155)	total: 7.76s	remaining: 8m
+159:	learn: 0.8720261	test: 0.8758772	best: 0.8763158 (155)	total: 7.81s	remaining: 8m
+160:	learn: 0.8721236	test: 0.8754386	best: 0.8763158 (155)	total: 7.86s	remaining: 8m
+161:	learn: 0.8721236	test: 0.8754386	best: 0.8763158 (155)	total: 7.91s	remaining: 8m
+162:	learn: 0.8723186	test: 0.8754386	best: 0.8763158 (155)	total: 7.95s	remaining: 7m 59s
+163:	learn: 0.8724161	test: 0.8754386	best: 0.8763158 (155)	total: 7.99s	remaining: 7m 59s
+164:	learn: 0.8724649	test: 0.8754386	best: 0.8763158 (155)	total: 8.04s	remaining: 7m 59s
+165:	learn: 0.8723674	test: 0.8754386	best: 0.8763158 (155)	total: 8.09s	remaining: 7m 59s
+166:	learn: 0.8726112	test: 0.8745614	best: 0.8763158 (155)	total: 8.14s	remaining: 7m 59s
+167:	learn: 0.8725624	test: 0.8745614	best: 0.8763158 (155)	total: 8.18s	remaining: 7m 58s
+168:	learn: 0.8730987	test: 0.8750000	best: 0.8763158 (155)	total: 8.23s	remaining: 7m 58s
+169:	learn: 0.8731474	test: 0.8750000	best: 0.8763158 (155)	total: 8.29s	remaining: 7m 59s
+170:	learn: 0.8731474	test: 0.8750000	best: 0.8763158 (155)	total: 8.33s	remaining: 7m 59s
+171:	learn: 0.8730987	test: 0.8750000	best: 0.8763158 (155)	total: 8.38s	remaining: 7m 58s
+172:	learn: 0.8733424	test: 0.8750000	best: 0.8763158 (155)	total: 8.42s	remaining: 7m 58s
+173:	learn: 0.8735374	test: 0.8750000	best: 0.8763158 (155)	total: 8.46s	remaining: 7m 57s
+174:	learn: 0.8737324	test: 0.8745614	best: 0.8763158 (155)	total: 8.52s	remaining: 7m 58s
+175:	learn: 0.8737324	test: 0.8741228	best: 0.8763158 (155)	total: 8.56s	remaining: 7m 58s
+176:	learn: 0.8736349	test: 0.8745614	best: 0.8763158 (155)	total: 8.61s	remaining: 7m 57s
+177:	learn: 0.8737812	test: 0.8750000	best: 0.8763158 (155)	total: 8.66s	remaining: 7m 57s
+178:	learn: 0.8738300	test: 0.8750000	best: 0.8763158 (155)	total: 8.7s	remaining: 7m 57s
+179:	learn: 0.8738300	test: 0.8745614	best: 0.8763158 (155)	total: 8.75s	remaining: 7m 57s
+180:	learn: 0.8738300	test: 0.8745614	best: 0.8763158 (155)	total: 8.8s	remaining: 7m 57s
+181:	learn: 0.8738300	test: 0.8741228	best: 0.8763158 (155)	total: 8.85s	remaining: 7m 57s
+182:	learn: 0.8735862	test: 0.8745614	best: 0.8763158 (155)	total: 8.89s	remaining: 7m 56s
+183:	learn: 0.8736837	test: 0.8750000	best: 0.8763158 (155)	total: 8.94s	remaining: 7m 56s
+184:	learn: 0.8737812	test: 0.8750000	best: 0.8763158 (155)	total: 8.99s	remaining: 7m 57s
+185:	learn: 0.8738300	test: 0.8750000	best: 0.8763158 (155)	total: 9.04s	remaining: 7m 56s
+186:	learn: 0.8738300	test: 0.8750000	best: 0.8763158 (155)	total: 9.08s	remaining: 7m 56s
+187:	learn: 0.8739762	test: 0.8750000	best: 0.8763158 (155)	total: 9.13s	remaining: 7m 56s
+188:	learn: 0.8739762	test: 0.8745614	best: 0.8763158 (155)	total: 9.17s	remaining: 7m 56s
+189:	learn: 0.8740737	test: 0.8745614	best: 0.8763158 (155)	total: 9.23s	remaining: 7m 56s
+190:	learn: 0.8742687	test: 0.8758772	best: 0.8763158 (155)	total: 9.28s	remaining: 7m 56s
+191:	learn: 0.8744150	test: 0.8763158	best: 0.8763158 (155)	total: 9.32s	remaining: 7m 56s
+192:	learn: 0.8745612	test: 0.8758772	best: 0.8763158 (155)	total: 9.37s	remaining: 7m 55s
+193:	learn: 0.8744637	test: 0.8763158	best: 0.8763158 (155)	total: 9.41s	remaining: 7m 55s
+194:	learn: 0.8746587	test: 0.8763158	best: 0.8763158 (155)	total: 9.47s	remaining: 7m 56s
+195:	learn: 0.8748050	test: 0.8758772	best: 0.8763158 (155)	total: 9.52s	remaining: 7m 55s
+196:	learn: 0.8746587	test: 0.8758772	best: 0.8763158 (155)	total: 9.56s	remaining: 7m 55s
+197:	learn: 0.8749025	test: 0.8758772	best: 0.8763158 (155)	total: 9.61s	remaining: 7m 55s
+198:	learn: 0.8749025	test: 0.8758772	best: 0.8763158 (155)	total: 9.62s	remaining: 7m 54s
+199:	learn: 0.8747075	test: 0.8763158	best: 0.8763158 (155)	total: 9.67s	remaining: 7m 53s
+200:	learn: 0.8747075	test: 0.8763158	best: 0.8763158 (155)	total: 9.72s	remaining: 7m 53s
+201:	learn: 0.8746587	test: 0.8763158	best: 0.8763158 (155)	total: 9.76s	remaining: 7m 53s
+202:	learn: 0.8746587	test: 0.8763158	best: 0.8763158 (155)	total: 9.81s	remaining: 7m 53s
+203:	learn: 0.8746587	test: 0.8763158	best: 0.8763158 (155)	total: 9.85s	remaining: 7m 53s
+204:	learn: 0.8748537	test: 0.8763158	best: 0.8763158 (155)	total: 9.9s	remaining: 7m 53s
+205:	learn: 0.8748050	test: 0.8763158	best: 0.8763158 (155)	total: 9.95s	remaining: 7m 53s
+206:	learn: 0.8747562	test: 0.8767544	best: 0.8767544 (206)	total: 10s	remaining: 7m 52s
+207:	learn: 0.8747562	test: 0.8767544	best: 0.8767544 (206)	total: 10s	remaining: 7m 52s
+208:	learn: 0.8748537	test: 0.8763158	best: 0.8767544 (206)	total: 10.1s	remaining: 7m 52s
+209:	learn: 0.8750488	test: 0.8763158	best: 0.8767544 (206)	total: 10.1s	remaining: 7m 53s
+210:	learn: 0.8752925	test: 0.8767544	best: 0.8767544 (206)	total: 10.2s	remaining: 7m 53s
+211:	learn: 0.8753413	test: 0.8767544	best: 0.8767544 (206)	total: 10.2s	remaining: 7m 52s
+212:	learn: 0.8753413	test: 0.8767544	best: 0.8767544 (206)	total: 10.3s	remaining: 7m 51s
+213:	learn: 0.8754388	test: 0.8767544	best: 0.8767544 (206)	total: 10.3s	remaining: 7m 50s
+214:	learn: 0.8756825	test: 0.8763158	best: 0.8767544 (206)	total: 10.3s	remaining: 7m 50s
+215:	learn: 0.8758775	test: 0.8763158	best: 0.8767544 (206)	total: 10.4s	remaining: 7m 51s
+216:	learn: 0.8760238	test: 0.8763158	best: 0.8767544 (206)	total: 10.4s	remaining: 7m 51s
+217:	learn: 0.8759263	test: 0.8763158	best: 0.8767544 (206)	total: 10.5s	remaining: 7m 50s
+218:	learn: 0.8759750	test: 0.8758772	best: 0.8767544 (206)	total: 10.5s	remaining: 7m 50s
+219:	learn: 0.8761700	test: 0.8763158	best: 0.8767544 (206)	total: 10.6s	remaining: 7m 50s
+220:	learn: 0.8761700	test: 0.8763158	best: 0.8767544 (206)	total: 10.6s	remaining: 7m 50s
+221:	learn: 0.8762188	test: 0.8763158	best: 0.8767544 (206)	total: 10.7s	remaining: 7m 50s
+222:	learn: 0.8762676	test: 0.8763158	best: 0.8767544 (206)	total: 10.7s	remaining: 7m 50s
+223:	learn: 0.8766088	test: 0.8771930	best: 0.8771930 (223)	total: 10.8s	remaining: 7m 50s
+224:	learn: 0.8768038	test: 0.8771930	best: 0.8771930 (223)	total: 10.8s	remaining: 7m 50s
+225:	learn: 0.8769013	test: 0.8767544	best: 0.8771930 (223)	total: 10.9s	remaining: 7m 50s
+226:	learn: 0.8767063	test: 0.8771930	best: 0.8771930 (223)	total: 10.9s	remaining: 7m 50s
+227:	learn: 0.8768038	test: 0.8771930	best: 0.8771930 (223)	total: 11s	remaining: 7m 50s
+228:	learn: 0.8771938	test: 0.8767544	best: 0.8771930 (223)	total: 11s	remaining: 7m 49s
+229:	learn: 0.8771451	test: 0.8767544	best: 0.8771930 (223)	total: 11.1s	remaining: 7m 49s
+230:	learn: 0.8771938	test: 0.8767544	best: 0.8771930 (223)	total: 11.1s	remaining: 7m 49s
+231:	learn: 0.8775351	test: 0.8767544	best: 0.8771930 (223)	total: 11.2s	remaining: 7m 49s
+232:	learn: 0.8775839	test: 0.8767544	best: 0.8771930 (223)	total: 11.2s	remaining: 7m 49s
+233:	learn: 0.8776814	test: 0.8767544	best: 0.8771930 (223)	total: 11.2s	remaining: 7m 49s
+234:	learn: 0.8776814	test: 0.8771930	best: 0.8771930 (223)	total: 11.3s	remaining: 7m 49s
+235:	learn: 0.8777301	test: 0.8771930	best: 0.8771930 (223)	total: 11.3s	remaining: 7m 49s
+236:	learn: 0.8777789	test: 0.8771930	best: 0.8771930 (223)	total: 11.4s	remaining: 7m 49s
+237:	learn: 0.8779739	test: 0.8763158	best: 0.8771930 (223)	total: 11.4s	remaining: 7m 49s
+238:	learn: 0.8779739	test: 0.8763158	best: 0.8771930 (223)	total: 11.5s	remaining: 7m 48s
+239:	learn: 0.8782664	test: 0.8767544	best: 0.8771930 (223)	total: 11.5s	remaining: 7m 48s
+240:	learn: 0.8782176	test: 0.8767544	best: 0.8771930 (223)	total: 11.6s	remaining: 7m 49s
+241:	learn: 0.8782664	test: 0.8767544	best: 0.8771930 (223)	total: 11.6s	remaining: 7m 49s
+242:	learn: 0.8784614	test: 0.8767544	best: 0.8771930 (223)	total: 11.7s	remaining: 7m 49s
+243:	learn: 0.8784614	test: 0.8767544	best: 0.8771930 (223)	total: 11.7s	remaining: 7m 49s
+244:	learn: 0.8784126	test: 0.8776316	best: 0.8776316 (244)	total: 11.8s	remaining: 7m 49s
+245:	learn: 0.8785101	test: 0.8780702	best: 0.8780702 (245)	total: 11.9s	remaining: 7m 50s
+246:	learn: 0.8786076	test: 0.8780702	best: 0.8780702 (245)	total: 11.9s	remaining: 7m 49s
+247:	learn: 0.8787051	test: 0.8780702	best: 0.8780702 (245)	total: 11.9s	remaining: 7m 49s
+248:	learn: 0.8787539	test: 0.8785088	best: 0.8785088 (248)	total: 12s	remaining: 7m 49s
+249:	learn: 0.8787051	test: 0.8785088	best: 0.8785088 (248)	total: 12s	remaining: 7m 49s
+250:	learn: 0.8789002	test: 0.8780702	best: 0.8785088 (248)	total: 12.1s	remaining: 7m 49s
+251:	learn: 0.8791927	test: 0.8780702	best: 0.8785088 (248)	total: 12.1s	remaining: 7m 49s
+252:	learn: 0.8792902	test: 0.8776316	best: 0.8785088 (248)	total: 12.2s	remaining: 7m 49s
+253:	learn: 0.8791927	test: 0.8776316	best: 0.8785088 (248)	total: 12.2s	remaining: 7m 49s
+254:	learn: 0.8792414	test: 0.8776316	best: 0.8785088 (248)	total: 12.3s	remaining: 7m 49s
+255:	learn: 0.8794364	test: 0.8789474	best: 0.8789474 (255)	total: 12.3s	remaining: 7m 49s
+256:	learn: 0.8792902	test: 0.8785088	best: 0.8789474 (255)	total: 12.4s	remaining: 7m 48s
+257:	learn: 0.8795339	test: 0.8780702	best: 0.8789474 (255)	total: 12.4s	remaining: 7m 48s
+258:	learn: 0.8796314	test: 0.8780702	best: 0.8789474 (255)	total: 12.5s	remaining: 7m 48s
+259:	learn: 0.8798264	test: 0.8780702	best: 0.8789474 (255)	total: 12.5s	remaining: 7m 48s
+260:	learn: 0.8800215	test: 0.8780702	best: 0.8789474 (255)	total: 12.6s	remaining: 7m 48s
+261:	learn: 0.8801677	test: 0.8776316	best: 0.8789474 (255)	total: 12.6s	remaining: 7m 48s
+262:	learn: 0.8801190	test: 0.8776316	best: 0.8789474 (255)	total: 12.6s	remaining: 7m 48s
+263:	learn: 0.8802165	test: 0.8780702	best: 0.8789474 (255)	total: 12.7s	remaining: 7m 48s
+264:	learn: 0.8807040	test: 0.8780702	best: 0.8789474 (255)	total: 12.7s	remaining: 7m 48s
+265:	learn: 0.8808015	test: 0.8785088	best: 0.8789474 (255)	total: 12.8s	remaining: 7m 48s
+266:	learn: 0.8809965	test: 0.8785088	best: 0.8789474 (255)	total: 12.8s	remaining: 7m 47s
+267:	learn: 0.8810940	test: 0.8789474	best: 0.8789474 (255)	total: 12.9s	remaining: 7m 47s
+268:	learn: 0.8810940	test: 0.8785088	best: 0.8789474 (255)	total: 12.9s	remaining: 7m 47s
+269:	learn: 0.8813378	test: 0.8780702	best: 0.8789474 (255)	total: 13s	remaining: 7m 47s
+270:	learn: 0.8813378	test: 0.8780702	best: 0.8789474 (255)	total: 13s	remaining: 7m 47s
+271:	learn: 0.8815815	test: 0.8785088	best: 0.8789474 (255)	total: 13.1s	remaining: 7m 47s
+272:	learn: 0.8815328	test: 0.8785088	best: 0.8789474 (255)	total: 13.1s	remaining: 7m 47s
+273:	learn: 0.8815328	test: 0.8785088	best: 0.8789474 (255)	total: 13.2s	remaining: 7m 47s
+274:	learn: 0.8814840	test: 0.8785088	best: 0.8789474 (255)	total: 13.2s	remaining: 7m 47s
+275:	learn: 0.8818253	test: 0.8789474	best: 0.8789474 (255)	total: 13.3s	remaining: 7m 47s
+276:	learn: 0.8818253	test: 0.8785088	best: 0.8789474 (255)	total: 13.3s	remaining: 7m 47s
+277:	learn: 0.8818253	test: 0.8780702	best: 0.8789474 (255)	total: 13.4s	remaining: 7m 47s
+278:	learn: 0.8820203	test: 0.8780702	best: 0.8789474 (255)	total: 13.4s	remaining: 7m 47s
+279:	learn: 0.8820203	test: 0.8780702	best: 0.8789474 (255)	total: 13.5s	remaining: 7m 47s
+280:	learn: 0.8819228	test: 0.8785088	best: 0.8789474 (255)	total: 13.5s	remaining: 7m 47s
+281:	learn: 0.8820203	test: 0.8785088	best: 0.8789474 (255)	total: 13.6s	remaining: 7m 47s
+282:	learn: 0.8821178	test: 0.8785088	best: 0.8789474 (255)	total: 13.6s	remaining: 7m 47s
+283:	learn: 0.8822640	test: 0.8785088	best: 0.8789474 (255)	total: 13.7s	remaining: 7m 47s
+284:	learn: 0.8822640	test: 0.8785088	best: 0.8789474 (255)	total: 13.7s	remaining: 7m 47s
+285:	learn: 0.8822640	test: 0.8785088	best: 0.8789474 (255)	total: 13.7s	remaining: 7m 47s
+286:	learn: 0.8821178	test: 0.8785088	best: 0.8789474 (255)	total: 13.8s	remaining: 7m 46s
+287:	learn: 0.8823615	test: 0.8785088	best: 0.8789474 (255)	total: 13.8s	remaining: 7m 46s
+288:	learn: 0.8825078	test: 0.8780702	best: 0.8789474 (255)	total: 13.9s	remaining: 7m 46s
+289:	learn: 0.8826053	test: 0.8785088	best: 0.8789474 (255)	total: 13.9s	remaining: 7m 46s
+290:	learn: 0.8825566	test: 0.8780702	best: 0.8789474 (255)	total: 14s	remaining: 7m 46s
+291:	learn: 0.8825566	test: 0.8780702	best: 0.8789474 (255)	total: 14s	remaining: 7m 46s
+292:	learn: 0.8824590	test: 0.8780702	best: 0.8789474 (255)	total: 14.1s	remaining: 7m 46s
+293:	learn: 0.8824103	test: 0.8780702	best: 0.8789474 (255)	total: 14.1s	remaining: 7m 46s
+294:	learn: 0.8824103	test: 0.8785088	best: 0.8789474 (255)	total: 14.2s	remaining: 7m 47s
+295:	learn: 0.8824103	test: 0.8785088	best: 0.8789474 (255)	total: 14.2s	remaining: 7m 46s
+296:	learn: 0.8825078	test: 0.8785088	best: 0.8789474 (255)	total: 14.3s	remaining: 7m 46s
+297:	learn: 0.8826053	test: 0.8785088	best: 0.8789474 (255)	total: 14.3s	remaining: 7m 46s
+298:	learn: 0.8826541	test: 0.8785088	best: 0.8789474 (255)	total: 14.4s	remaining: 7m 46s
+299:	learn: 0.8826541	test: 0.8785088	best: 0.8789474 (255)	total: 14.4s	remaining: 7m 46s
+300:	learn: 0.8825566	test: 0.8785088	best: 0.8789474 (255)	total: 14.5s	remaining: 7m 46s
+301:	learn: 0.8827516	test: 0.8785088	best: 0.8789474 (255)	total: 14.5s	remaining: 7m 46s
+302:	learn: 0.8830928	test: 0.8789474	best: 0.8789474 (255)	total: 14.6s	remaining: 7m 46s
+303:	learn: 0.8831416	test: 0.8789474	best: 0.8789474 (255)	total: 14.6s	remaining: 7m 46s
+304:	learn: 0.8830928	test: 0.8789474	best: 0.8789474 (255)	total: 14.7s	remaining: 7m 46s
+305:	learn: 0.8832391	test: 0.8789474	best: 0.8789474 (255)	total: 14.7s	remaining: 7m 46s
+306:	learn: 0.8834341	test: 0.8789474	best: 0.8789474 (255)	total: 14.8s	remaining: 7m 46s
+307:	learn: 0.8835316	test: 0.8793860	best: 0.8793860 (307)	total: 14.8s	remaining: 7m 46s
+308:	learn: 0.8836291	test: 0.8793860	best: 0.8793860 (307)	total: 14.9s	remaining: 7m 46s
+309:	learn: 0.8834341	test: 0.8793860	best: 0.8793860 (307)	total: 14.9s	remaining: 7m 46s
+310:	learn: 0.8834828	test: 0.8793860	best: 0.8793860 (307)	total: 15s	remaining: 7m 46s
+311:	learn: 0.8833853	test: 0.8793860	best: 0.8793860 (307)	total: 15s	remaining: 7m 46s
+312:	learn: 0.8835316	test: 0.8793860	best: 0.8793860 (307)	total: 15.1s	remaining: 7m 45s
+313:	learn: 0.8833366	test: 0.8793860	best: 0.8793860 (307)	total: 15.1s	remaining: 7m 45s
+314:	learn: 0.8833853	test: 0.8793860	best: 0.8793860 (307)	total: 15.1s	remaining: 7m 45s
+315:	learn: 0.8834341	test: 0.8793860	best: 0.8793860 (307)	total: 15.2s	remaining: 7m 45s
+316:	learn: 0.8833366	test: 0.8793860	best: 0.8793860 (307)	total: 15.2s	remaining: 7m 45s
+317:	learn: 0.8833853	test: 0.8793860	best: 0.8793860 (307)	total: 15.3s	remaining: 7m 45s
+318:	learn: 0.8836291	test: 0.8798246	best: 0.8798246 (318)	total: 15.3s	remaining: 7m 45s
+319:	learn: 0.8836291	test: 0.8802632	best: 0.8802632 (319)	total: 15.4s	remaining: 7m 45s
+320:	learn: 0.8836778	test: 0.8802632	best: 0.8802632 (319)	total: 15.4s	remaining: 7m 45s
+321:	learn: 0.8836778	test: 0.8802632	best: 0.8802632 (319)	total: 15.5s	remaining: 7m 45s
+322:	learn: 0.8836778	test: 0.8802632	best: 0.8802632 (319)	total: 15.5s	remaining: 7m 45s
+323:	learn: 0.8837266	test: 0.8802632	best: 0.8802632 (319)	total: 15.6s	remaining: 7m 45s
+324:	learn: 0.8839216	test: 0.8802632	best: 0.8802632 (319)	total: 15.6s	remaining: 7m 45s
+325:	learn: 0.8841654	test: 0.8802632	best: 0.8802632 (319)	total: 15.7s	remaining: 7m 45s
+326:	learn: 0.8839216	test: 0.8807018	best: 0.8807018 (326)	total: 15.7s	remaining: 7m 45s
+327:	learn: 0.8840191	test: 0.8807018	best: 0.8807018 (326)	total: 15.8s	remaining: 7m 45s
+328:	learn: 0.8843604	test: 0.8807018	best: 0.8807018 (326)	total: 15.8s	remaining: 7m 44s
+329:	learn: 0.8846529	test: 0.8807018	best: 0.8807018 (326)	total: 15.9s	remaining: 7m 45s
+330:	learn: 0.8846041	test: 0.8807018	best: 0.8807018 (326)	total: 15.9s	remaining: 7m 45s
+331:	learn: 0.8847016	test: 0.8807018	best: 0.8807018 (326)	total: 16s	remaining: 7m 44s
+332:	learn: 0.8846529	test: 0.8807018	best: 0.8807018 (326)	total: 16s	remaining: 7m 44s
+333:	learn: 0.8845066	test: 0.8802632	best: 0.8807018 (326)	total: 16.1s	remaining: 7m 44s
+334:	learn: 0.8844091	test: 0.8807018	best: 0.8807018 (326)	total: 16.1s	remaining: 7m 44s
+335:	learn: 0.8843604	test: 0.8807018	best: 0.8807018 (326)	total: 16.2s	remaining: 7m 44s
+336:	learn: 0.8845554	test: 0.8807018	best: 0.8807018 (326)	total: 16.2s	remaining: 7m 44s
+337:	learn: 0.8845554	test: 0.8807018	best: 0.8807018 (326)	total: 16.3s	remaining: 7m 44s
+338:	learn: 0.8845554	test: 0.8807018	best: 0.8807018 (326)	total: 16.3s	remaining: 7m 44s
+339:	learn: 0.8847991	test: 0.8807018	best: 0.8807018 (326)	total: 16.4s	remaining: 7m 44s
+340:	learn: 0.8846041	test: 0.8807018	best: 0.8807018 (326)	total: 16.4s	remaining: 7m 44s
+341:	learn: 0.8843604	test: 0.8807018	best: 0.8807018 (326)	total: 16.4s	remaining: 7m 44s
+342:	learn: 0.8844091	test: 0.8807018	best: 0.8807018 (326)	total: 16.5s	remaining: 7m 44s
+343:	learn: 0.8844091	test: 0.8807018	best: 0.8807018 (326)	total: 16.5s	remaining: 7m 44s
+344:	learn: 0.8844091	test: 0.8802632	best: 0.8807018 (326)	total: 16.6s	remaining: 7m 44s
+345:	learn: 0.8846041	test: 0.8802632	best: 0.8807018 (326)	total: 16.6s	remaining: 7m 44s
+346:	learn: 0.8847504	test: 0.8802632	best: 0.8807018 (326)	total: 16.7s	remaining: 7m 44s
+347:	learn: 0.8848966	test: 0.8802632	best: 0.8807018 (326)	total: 16.7s	remaining: 7m 44s
+348:	learn: 0.8849454	test: 0.8802632	best: 0.8807018 (326)	total: 16.8s	remaining: 7m 43s
+349:	learn: 0.8848479	test: 0.8798246	best: 0.8807018 (326)	total: 16.8s	remaining: 7m 44s
+350:	learn: 0.8849454	test: 0.8798246	best: 0.8807018 (326)	total: 16.9s	remaining: 7m 44s
+351:	learn: 0.8849454	test: 0.8798246	best: 0.8807018 (326)	total: 16.9s	remaining: 7m 44s
+352:	learn: 0.8850429	test: 0.8798246	best: 0.8807018 (326)	total: 17s	remaining: 7m 43s
+353:	learn: 0.8849454	test: 0.8798246	best: 0.8807018 (326)	total: 17s	remaining: 7m 43s
+354:	learn: 0.8849454	test: 0.8798246	best: 0.8807018 (326)	total: 17.1s	remaining: 7m 44s
+355:	learn: 0.8847504	test: 0.8793860	best: 0.8807018 (326)	total: 17.1s	remaining: 7m 44s
+356:	learn: 0.8847504	test: 0.8793860	best: 0.8807018 (326)	total: 17.2s	remaining: 7m 44s
+357:	learn: 0.8847991	test: 0.8793860	best: 0.8807018 (326)	total: 17.2s	remaining: 7m 43s
+358:	learn: 0.8847991	test: 0.8789474	best: 0.8807018 (326)	total: 17.3s	remaining: 7m 43s
+359:	learn: 0.8848479	test: 0.8793860	best: 0.8807018 (326)	total: 17.3s	remaining: 7m 43s
+360:	learn: 0.8848966	test: 0.8793860	best: 0.8807018 (326)	total: 17.4s	remaining: 7m 43s
+361:	learn: 0.8848966	test: 0.8793860	best: 0.8807018 (326)	total: 17.4s	remaining: 7m 43s
+362:	learn: 0.8851404	test: 0.8793860	best: 0.8807018 (326)	total: 17.5s	remaining: 7m 43s
+363:	learn: 0.8850429	test: 0.8793860	best: 0.8807018 (326)	total: 17.5s	remaining: 7m 43s
+364:	learn: 0.8850917	test: 0.8798246	best: 0.8807018 (326)	total: 17.6s	remaining: 7m 43s
+365:	learn: 0.8850917	test: 0.8798246	best: 0.8807018 (326)	total: 17.6s	remaining: 7m 43s
+366:	learn: 0.8850917	test: 0.8793860	best: 0.8807018 (326)	total: 17.7s	remaining: 7m 43s
+367:	learn: 0.8850917	test: 0.8793860	best: 0.8807018 (326)	total: 17.7s	remaining: 7m 43s
+368:	learn: 0.8851892	test: 0.8793860	best: 0.8807018 (326)	total: 17.8s	remaining: 7m 43s
+369:	learn: 0.8852379	test: 0.8798246	best: 0.8807018 (326)	total: 17.8s	remaining: 7m 43s
+370:	learn: 0.8851892	test: 0.8798246	best: 0.8807018 (326)	total: 17.9s	remaining: 7m 43s
+371:	learn: 0.8852867	test: 0.8793860	best: 0.8807018 (326)	total: 17.9s	remaining: 7m 43s
+372:	learn: 0.8853842	test: 0.8793860	best: 0.8807018 (326)	total: 17.9s	remaining: 7m 43s
+373:	learn: 0.8853354	test: 0.8793860	best: 0.8807018 (326)	total: 18s	remaining: 7m 42s
+374:	learn: 0.8855304	test: 0.8789474	best: 0.8807018 (326)	total: 18s	remaining: 7m 42s
+375:	learn: 0.8857254	test: 0.8793860	best: 0.8807018 (326)	total: 18.1s	remaining: 7m 42s
+376:	learn: 0.8858717	test: 0.8793860	best: 0.8807018 (326)	total: 18.1s	remaining: 7m 42s
+377:	learn: 0.8857254	test: 0.8793860	best: 0.8807018 (326)	total: 18.2s	remaining: 7m 42s
+378:	learn: 0.8857254	test: 0.8793860	best: 0.8807018 (326)	total: 18.2s	remaining: 7m 42s
+379:	learn: 0.8857742	test: 0.8802632	best: 0.8807018 (326)	total: 18.3s	remaining: 7m 42s
+380:	learn: 0.8856279	test: 0.8802632	best: 0.8807018 (326)	total: 18.3s	remaining: 7m 42s
+381:	learn: 0.8856279	test: 0.8802632	best: 0.8807018 (326)	total: 18.4s	remaining: 7m 42s
+382:	learn: 0.8856767	test: 0.8802632	best: 0.8807018 (326)	total: 18.4s	remaining: 7m 42s
+383:	learn: 0.8857254	test: 0.8802632	best: 0.8807018 (326)	total: 18.4s	remaining: 7m 41s
+384:	learn: 0.8857254	test: 0.8802632	best: 0.8807018 (326)	total: 18.5s	remaining: 7m 42s
+385:	learn: 0.8858229	test: 0.8802632	best: 0.8807018 (326)	total: 18.5s	remaining: 7m 42s
+386:	learn: 0.8858717	test: 0.8802632	best: 0.8807018 (326)	total: 18.6s	remaining: 7m 41s
+387:	learn: 0.8856279	test: 0.8802632	best: 0.8807018 (326)	total: 18.6s	remaining: 7m 41s
+388:	learn: 0.8857742	test: 0.8802632	best: 0.8807018 (326)	total: 18.7s	remaining: 7m 41s
+389:	learn: 0.8856279	test: 0.8802632	best: 0.8807018 (326)	total: 18.8s	remaining: 7m 42s
+390:	learn: 0.8857742	test: 0.8798246	best: 0.8807018 (326)	total: 18.8s	remaining: 7m 41s
+391:	learn: 0.8858717	test: 0.8798246	best: 0.8807018 (326)	total: 18.8s	remaining: 7m 41s
+392:	learn: 0.8858229	test: 0.8798246	best: 0.8807018 (326)	total: 18.9s	remaining: 7m 41s
+393:	learn: 0.8858229	test: 0.8798246	best: 0.8807018 (326)	total: 18.9s	remaining: 7m 41s
+394:	learn: 0.8859692	test: 0.8798246	best: 0.8807018 (326)	total: 19s	remaining: 7m 41s
+395:	learn: 0.8861154	test: 0.8798246	best: 0.8807018 (326)	total: 19s	remaining: 7m 41s
+396:	learn: 0.8861154	test: 0.8798246	best: 0.8807018 (326)	total: 19.1s	remaining: 7m 41s
+397:	learn: 0.8859692	test: 0.8798246	best: 0.8807018 (326)	total: 19.1s	remaining: 7m 41s
+398:	learn: 0.8860667	test: 0.8798246	best: 0.8807018 (326)	total: 19.2s	remaining: 7m 41s
+399:	learn: 0.8860667	test: 0.8798246	best: 0.8807018 (326)	total: 19.2s	remaining: 7m 41s
+400:	learn: 0.8861154	test: 0.8798246	best: 0.8807018 (326)	total: 19.3s	remaining: 7m 41s
+401:	learn: 0.8861154	test: 0.8798246	best: 0.8807018 (326)	total: 19.3s	remaining: 7m 41s
+402:	learn: 0.8862129	test: 0.8793860	best: 0.8807018 (326)	total: 19.4s	remaining: 7m 41s
+403:	learn: 0.8862129	test: 0.8793860	best: 0.8807018 (326)	total: 19.4s	remaining: 7m 41s
+404:	learn: 0.8862129	test: 0.8793860	best: 0.8807018 (326)	total: 19.5s	remaining: 7m 41s
+405:	learn: 0.8863105	test: 0.8798246	best: 0.8807018 (326)	total: 19.5s	remaining: 7m 41s
+406:	learn: 0.8864080	test: 0.8789474	best: 0.8807018 (326)	total: 19.6s	remaining: 7m 41s
+407:	learn: 0.8866030	test: 0.8789474	best: 0.8807018 (326)	total: 19.6s	remaining: 7m 40s
+408:	learn: 0.8865055	test: 0.8789474	best: 0.8807018 (326)	total: 19.7s	remaining: 7m 40s
+409:	learn: 0.8867005	test: 0.8793860	best: 0.8807018 (326)	total: 19.7s	remaining: 7m 40s
+410:	learn: 0.8866030	test: 0.8793860	best: 0.8807018 (326)	total: 19.8s	remaining: 7m 40s
+411:	learn: 0.8867005	test: 0.8793860	best: 0.8807018 (326)	total: 19.8s	remaining: 7m 40s
+412:	learn: 0.8868955	test: 0.8798246	best: 0.8807018 (326)	total: 19.8s	remaining: 7m 40s
+413:	learn: 0.8868955	test: 0.8798246	best: 0.8807018 (326)	total: 19.9s	remaining: 7m 40s
+414:	learn: 0.8868955	test: 0.8798246	best: 0.8807018 (326)	total: 20s	remaining: 7m 40s
+415:	learn: 0.8870417	test: 0.8802632	best: 0.8807018 (326)	total: 20s	remaining: 7m 40s
+416:	learn: 0.8872367	test: 0.8807018	best: 0.8807018 (326)	total: 20s	remaining: 7m 40s
+417:	learn: 0.8871880	test: 0.8807018	best: 0.8807018 (326)	total: 20.1s	remaining: 7m 40s
+418:	learn: 0.8870905	test: 0.8811404	best: 0.8811404 (418)	total: 20.1s	remaining: 7m 40s
+419:	learn: 0.8871392	test: 0.8807018	best: 0.8811404 (418)	total: 20.2s	remaining: 7m 40s
+420:	learn: 0.8871392	test: 0.8807018	best: 0.8811404 (418)	total: 20.2s	remaining: 7m 40s
+421:	learn: 0.8871880	test: 0.8807018	best: 0.8811404 (418)	total: 20.3s	remaining: 7m 40s
+422:	learn: 0.8871392	test: 0.8807018	best: 0.8811404 (418)	total: 20.3s	remaining: 7m 40s
+423:	learn: 0.8871880	test: 0.8807018	best: 0.8811404 (418)	total: 20.4s	remaining: 7m 40s
+424:	learn: 0.8873342	test: 0.8807018	best: 0.8811404 (418)	total: 20.4s	remaining: 7m 40s
+425:	learn: 0.8874317	test: 0.8807018	best: 0.8811404 (418)	total: 20.5s	remaining: 7m 40s
+426:	learn: 0.8874805	test: 0.8807018	best: 0.8811404 (418)	total: 20.5s	remaining: 7m 40s
+427:	learn: 0.8874805	test: 0.8807018	best: 0.8811404 (418)	total: 20.6s	remaining: 7m 40s
+428:	learn: 0.8874805	test: 0.8807018	best: 0.8811404 (418)	total: 20.6s	remaining: 7m 40s
+429:	learn: 0.8874805	test: 0.8807018	best: 0.8811404 (418)	total: 20.7s	remaining: 7m 40s
+430:	learn: 0.8876268	test: 0.8802632	best: 0.8811404 (418)	total: 20.7s	remaining: 7m 40s
+431:	learn: 0.8875780	test: 0.8802632	best: 0.8811404 (418)	total: 20.8s	remaining: 7m 40s
+432:	learn: 0.8876268	test: 0.8798246	best: 0.8811404 (418)	total: 20.8s	remaining: 7m 40s
+433:	learn: 0.8876755	test: 0.8798246	best: 0.8811404 (418)	total: 20.9s	remaining: 7m 40s
+434:	learn: 0.8875780	test: 0.8798246	best: 0.8811404 (418)	total: 20.9s	remaining: 7m 40s
+435:	learn: 0.8877243	test: 0.8798246	best: 0.8811404 (418)	total: 21s	remaining: 7m 39s
+436:	learn: 0.8875780	test: 0.8798246	best: 0.8811404 (418)	total: 21s	remaining: 7m 39s
+437:	learn: 0.8876755	test: 0.8798246	best: 0.8811404 (418)	total: 21.1s	remaining: 7m 39s
+438:	learn: 0.8878705	test: 0.8793860	best: 0.8811404 (418)	total: 21.1s	remaining: 7m 39s
+439:	learn: 0.8879680	test: 0.8798246	best: 0.8811404 (418)	total: 21.2s	remaining: 7m 39s
+440:	learn: 0.8880168	test: 0.8793860	best: 0.8811404 (418)	total: 21.2s	remaining: 7m 39s
+441:	learn: 0.8879680	test: 0.8798246	best: 0.8811404 (418)	total: 21.3s	remaining: 7m 39s
+442:	learn: 0.8881630	test: 0.8802632	best: 0.8811404 (418)	total: 21.3s	remaining: 7m 39s
+443:	learn: 0.8881630	test: 0.8802632	best: 0.8811404 (418)	total: 21.4s	remaining: 7m 39s
+444:	learn: 0.8882605	test: 0.8802632	best: 0.8811404 (418)	total: 21.4s	remaining: 7m 39s
+445:	learn: 0.8882605	test: 0.8798246	best: 0.8811404 (418)	total: 21.5s	remaining: 7m 39s
+446:	learn: 0.8884068	test: 0.8798246	best: 0.8811404 (418)	total: 21.5s	remaining: 7m 39s
+447:	learn: 0.8884068	test: 0.8798246	best: 0.8811404 (418)	total: 21.6s	remaining: 7m 39s
+448:	learn: 0.8885043	test: 0.8798246	best: 0.8811404 (418)	total: 21.6s	remaining: 7m 39s
+449:	learn: 0.8885043	test: 0.8798246	best: 0.8811404 (418)	total: 21.7s	remaining: 7m 39s
+450:	learn: 0.8886505	test: 0.8798246	best: 0.8811404 (418)	total: 21.7s	remaining: 7m 39s
+451:	learn: 0.8885530	test: 0.8798246	best: 0.8811404 (418)	total: 21.8s	remaining: 7m 39s
+452:	learn: 0.8886018	test: 0.8802632	best: 0.8811404 (418)	total: 21.8s	remaining: 7m 39s
+453:	learn: 0.8885043	test: 0.8798246	best: 0.8811404 (418)	total: 21.8s	remaining: 7m 39s
+454:	learn: 0.8886505	test: 0.8798246	best: 0.8811404 (418)	total: 21.9s	remaining: 7m 39s
+455:	learn: 0.8886505	test: 0.8798246	best: 0.8811404 (418)	total: 21.9s	remaining: 7m 39s
+456:	learn: 0.8886505	test: 0.8798246	best: 0.8811404 (418)	total: 22s	remaining: 7m 39s
+457:	learn: 0.8886018	test: 0.8798246	best: 0.8811404 (418)	total: 22s	remaining: 7m 39s
+458:	learn: 0.8886993	test: 0.8798246	best: 0.8811404 (418)	total: 22.1s	remaining: 7m 39s
+459:	learn: 0.8886018	test: 0.8798246	best: 0.8811404 (418)	total: 22.1s	remaining: 7m 39s
+460:	learn: 0.8886993	test: 0.8793860	best: 0.8811404 (418)	total: 22.2s	remaining: 7m 39s
+461:	learn: 0.8885043	test: 0.8793860	best: 0.8811404 (418)	total: 22.2s	remaining: 7m 39s
+462:	learn: 0.8886018	test: 0.8793860	best: 0.8811404 (418)	total: 22.3s	remaining: 7m 39s
+463:	learn: 0.8887968	test: 0.8789474	best: 0.8811404 (418)	total: 22.3s	remaining: 7m 39s
+464:	learn: 0.8888456	test: 0.8785088	best: 0.8811404 (418)	total: 22.4s	remaining: 7m 39s
+465:	learn: 0.8888456	test: 0.8785088	best: 0.8811404 (418)	total: 22.4s	remaining: 7m 39s
+466:	learn: 0.8889431	test: 0.8785088	best: 0.8811404 (418)	total: 22.5s	remaining: 7m 38s
+467:	learn: 0.8888943	test: 0.8785088	best: 0.8811404 (418)	total: 22.5s	remaining: 7m 38s
+468:	learn: 0.8890893	test: 0.8785088	best: 0.8811404 (418)	total: 22.6s	remaining: 7m 38s
+469:	learn: 0.8891868	test: 0.8789474	best: 0.8811404 (418)	total: 22.6s	remaining: 7m 38s
+470:	learn: 0.8893331	test: 0.8789474	best: 0.8811404 (418)	total: 22.7s	remaining: 7m 38s
+471:	learn: 0.8892356	test: 0.8789474	best: 0.8811404 (418)	total: 22.7s	remaining: 7m 38s
+472:	learn: 0.8892356	test: 0.8789474	best: 0.8811404 (418)	total: 22.8s	remaining: 7m 38s
+473:	learn: 0.8893331	test: 0.8789474	best: 0.8811404 (418)	total: 22.8s	remaining: 7m 38s
+474:	learn: 0.8894306	test: 0.8785088	best: 0.8811404 (418)	total: 22.9s	remaining: 7m 38s
+475:	learn: 0.8894306	test: 0.8785088	best: 0.8811404 (418)	total: 22.9s	remaining: 7m 38s
+476:	learn: 0.8894793	test: 0.8789474	best: 0.8811404 (418)	total: 23s	remaining: 7m 38s
+477:	learn: 0.8895768	test: 0.8785088	best: 0.8811404 (418)	total: 23s	remaining: 7m 38s
+478:	learn: 0.8895768	test: 0.8785088	best: 0.8811404 (418)	total: 23.1s	remaining: 7m 38s
+479:	learn: 0.8895281	test: 0.8785088	best: 0.8811404 (418)	total: 23.1s	remaining: 7m 38s
+480:	learn: 0.8893818	test: 0.8789474	best: 0.8811404 (418)	total: 23.2s	remaining: 7m 38s
+481:	learn: 0.8895281	test: 0.8793860	best: 0.8811404 (418)	total: 23.2s	remaining: 7m 38s
+482:	learn: 0.8895768	test: 0.8793860	best: 0.8811404 (418)	total: 23.3s	remaining: 7m 38s
+483:	learn: 0.8897718	test: 0.8793860	best: 0.8811404 (418)	total: 23.3s	remaining: 7m 38s
+484:	learn: 0.8898206	test: 0.8793860	best: 0.8811404 (418)	total: 23.4s	remaining: 7m 38s
+485:	learn: 0.8899668	test: 0.8793860	best: 0.8811404 (418)	total: 23.4s	remaining: 7m 38s
+486:	learn: 0.8900644	test: 0.8793860	best: 0.8811404 (418)	total: 23.5s	remaining: 7m 38s
+487:	learn: 0.8900156	test: 0.8793860	best: 0.8811404 (418)	total: 23.5s	remaining: 7m 38s
+488:	learn: 0.8902106	test: 0.8793860	best: 0.8811404 (418)	total: 23.6s	remaining: 7m 38s
+489:	learn: 0.8901131	test: 0.8793860	best: 0.8811404 (418)	total: 23.6s	remaining: 7m 38s
+490:	learn: 0.8904056	test: 0.8793860	best: 0.8811404 (418)	total: 23.7s	remaining: 7m 38s
+491:	learn: 0.8903081	test: 0.8793860	best: 0.8811404 (418)	total: 23.7s	remaining: 7m 37s
+492:	learn: 0.8903081	test: 0.8793860	best: 0.8811404 (418)	total: 23.7s	remaining: 7m 37s
+493:	learn: 0.8903081	test: 0.8793860	best: 0.8811404 (418)	total: 23.8s	remaining: 7m 37s
+494:	learn: 0.8904544	test: 0.8789474	best: 0.8811404 (418)	total: 23.8s	remaining: 7m 37s
+495:	learn: 0.8905031	test: 0.8789474	best: 0.8811404 (418)	total: 23.9s	remaining: 7m 37s
+496:	learn: 0.8906006	test: 0.8789474	best: 0.8811404 (418)	total: 23.9s	remaining: 7m 37s
+497:	learn: 0.8906494	test: 0.8789474	best: 0.8811404 (418)	total: 24s	remaining: 7m 37s
+498:	learn: 0.8906981	test: 0.8789474	best: 0.8811404 (418)	total: 24s	remaining: 7m 37s
+499:	learn: 0.8906494	test: 0.8789474	best: 0.8811404 (418)	total: 24.1s	remaining: 7m 37s
+500:	learn: 0.8906494	test: 0.8789474	best: 0.8811404 (418)	total: 24.1s	remaining: 7m 37s
+501:	learn: 0.8906494	test: 0.8789474	best: 0.8811404 (418)	total: 24.2s	remaining: 7m 37s
+502:	learn: 0.8906494	test: 0.8789474	best: 0.8811404 (418)	total: 24.2s	remaining: 7m 37s
+503:	learn: 0.8906494	test: 0.8789474	best: 0.8811404 (418)	total: 24.3s	remaining: 7m 37s
+504:	learn: 0.8906494	test: 0.8785088	best: 0.8811404 (418)	total: 24.3s	remaining: 7m 37s
+505:	learn: 0.8908444	test: 0.8789474	best: 0.8811404 (418)	total: 24.4s	remaining: 7m 37s
+506:	learn: 0.8908931	test: 0.8789474	best: 0.8811404 (418)	total: 24.4s	remaining: 7m 37s
+507:	learn: 0.8908931	test: 0.8789474	best: 0.8811404 (418)	total: 24.5s	remaining: 7m 37s
+508:	learn: 0.8907956	test: 0.8789474	best: 0.8811404 (418)	total: 24.5s	remaining: 7m 36s
+509:	learn: 0.8907956	test: 0.8789474	best: 0.8811404 (418)	total: 24.6s	remaining: 7m 36s
+510:	learn: 0.8907956	test: 0.8789474	best: 0.8811404 (418)	total: 24.6s	remaining: 7m 36s
+511:	learn: 0.8907956	test: 0.8789474	best: 0.8811404 (418)	total: 24.7s	remaining: 7m 36s
+512:	learn: 0.8907956	test: 0.8793860	best: 0.8811404 (418)	total: 24.7s	remaining: 7m 36s
+513:	learn: 0.8907956	test: 0.8789474	best: 0.8811404 (418)	total: 24.7s	remaining: 7m 36s
+514:	learn: 0.8908931	test: 0.8789474	best: 0.8811404 (418)	total: 24.8s	remaining: 7m 36s
+515:	learn: 0.8908931	test: 0.8789474	best: 0.8811404 (418)	total: 24.8s	remaining: 7m 36s
+516:	learn: 0.8910881	test: 0.8789474	best: 0.8811404 (418)	total: 24.9s	remaining: 7m 36s
+517:	learn: 0.8911369	test: 0.8793860	best: 0.8811404 (418)	total: 24.9s	remaining: 7m 36s
+518:	learn: 0.8910881	test: 0.8789474	best: 0.8811404 (418)	total: 25s	remaining: 7m 36s
+519:	learn: 0.8911369	test: 0.8789474	best: 0.8811404 (418)	total: 25s	remaining: 7m 36s
+520:	learn: 0.8912832	test: 0.8793860	best: 0.8811404 (418)	total: 25.1s	remaining: 7m 36s
+521:	learn: 0.8912832	test: 0.8789474	best: 0.8811404 (418)	total: 25.1s	remaining: 7m 36s
+522:	learn: 0.8913319	test: 0.8789474	best: 0.8811404 (418)	total: 25.2s	remaining: 7m 36s
+523:	learn: 0.8914294	test: 0.8793860	best: 0.8811404 (418)	total: 25.2s	remaining: 7m 36s
+524:	learn: 0.8912832	test: 0.8793860	best: 0.8811404 (418)	total: 25.3s	remaining: 7m 36s
+525:	learn: 0.8912344	test: 0.8793860	best: 0.8811404 (418)	total: 25.3s	remaining: 7m 36s
+526:	learn: 0.8913807	test: 0.8793860	best: 0.8811404 (418)	total: 25.4s	remaining: 7m 36s
+527:	learn: 0.8913807	test: 0.8798246	best: 0.8811404 (418)	total: 25.4s	remaining: 7m 36s
+528:	learn: 0.8914294	test: 0.8793860	best: 0.8811404 (418)	total: 25.5s	remaining: 7m 36s
+529:	learn: 0.8914782	test: 0.8798246	best: 0.8811404 (418)	total: 25.5s	remaining: 7m 36s
+530:	learn: 0.8914782	test: 0.8802632	best: 0.8811404 (418)	total: 25.6s	remaining: 7m 36s
+531:	learn: 0.8915757	test: 0.8802632	best: 0.8811404 (418)	total: 25.6s	remaining: 7m 35s
+532:	learn: 0.8916732	test: 0.8802632	best: 0.8811404 (418)	total: 25.7s	remaining: 7m 35s
+533:	learn: 0.8915269	test: 0.8802632	best: 0.8811404 (418)	total: 25.7s	remaining: 7m 35s
+534:	learn: 0.8917707	test: 0.8807018	best: 0.8811404 (418)	total: 25.8s	remaining: 7m 35s
+535:	learn: 0.8917707	test: 0.8807018	best: 0.8811404 (418)	total: 25.8s	remaining: 7m 35s
+536:	learn: 0.8917219	test: 0.8807018	best: 0.8811404 (418)	total: 25.9s	remaining: 7m 35s
+537:	learn: 0.8916732	test: 0.8807018	best: 0.8811404 (418)	total: 25.9s	remaining: 7m 35s
+538:	learn: 0.8918194	test: 0.8802632	best: 0.8811404 (418)	total: 25.9s	remaining: 7m 35s
+539:	learn: 0.8916732	test: 0.8802632	best: 0.8811404 (418)	total: 26s	remaining: 7m 35s
+540:	learn: 0.8918682	test: 0.8802632	best: 0.8811404 (418)	total: 26.1s	remaining: 7m 35s
+541:	learn: 0.8920632	test: 0.8802632	best: 0.8811404 (418)	total: 26.1s	remaining: 7m 35s
+542:	learn: 0.8920144	test: 0.8802632	best: 0.8811404 (418)	total: 26.2s	remaining: 7m 35s
+543:	learn: 0.8921607	test: 0.8802632	best: 0.8811404 (418)	total: 26.2s	remaining: 7m 35s
+544:	learn: 0.8921607	test: 0.8798246	best: 0.8811404 (418)	total: 26.3s	remaining: 7m 35s
+545:	learn: 0.8921607	test: 0.8798246	best: 0.8811404 (418)	total: 26.3s	remaining: 7m 35s
+546:	learn: 0.8921119	test: 0.8798246	best: 0.8811404 (418)	total: 26.4s	remaining: 7m 35s
+547:	learn: 0.8923069	test: 0.8793860	best: 0.8811404 (418)	total: 26.4s	remaining: 7m 35s
+548:	learn: 0.8924044	test: 0.8793860	best: 0.8811404 (418)	total: 26.5s	remaining: 7m 35s
+549:	learn: 0.8925507	test: 0.8793860	best: 0.8811404 (418)	total: 26.5s	remaining: 7m 35s
+550:	learn: 0.8925995	test: 0.8793860	best: 0.8811404 (418)	total: 26.6s	remaining: 7m 35s
+551:	learn: 0.8928432	test: 0.8798246	best: 0.8811404 (418)	total: 26.6s	remaining: 7m 35s
+552:	learn: 0.8929895	test: 0.8798246	best: 0.8811404 (418)	total: 26.7s	remaining: 7m 35s
+553:	learn: 0.8930382	test: 0.8798246	best: 0.8811404 (418)	total: 26.7s	remaining: 7m 35s
+554:	learn: 0.8929895	test: 0.8798246	best: 0.8811404 (418)	total: 26.8s	remaining: 7m 35s
+555:	learn: 0.8929895	test: 0.8798246	best: 0.8811404 (418)	total: 26.8s	remaining: 7m 35s
+556:	learn: 0.8929407	test: 0.8798246	best: 0.8811404 (418)	total: 26.9s	remaining: 7m 35s
+557:	learn: 0.8929895	test: 0.8798246	best: 0.8811404 (418)	total: 26.9s	remaining: 7m 35s
+558:	learn: 0.8929407	test: 0.8798246	best: 0.8811404 (418)	total: 27s	remaining: 7m 35s
+559:	learn: 0.8930382	test: 0.8798246	best: 0.8811404 (418)	total: 27s	remaining: 7m 35s
+560:	learn: 0.8930382	test: 0.8798246	best: 0.8811404 (418)	total: 27.1s	remaining: 7m 35s
+561:	learn: 0.8929895	test: 0.8793860	best: 0.8811404 (418)	total: 27.1s	remaining: 7m 35s
+562:	learn: 0.8929895	test: 0.8793860	best: 0.8811404 (418)	total: 27.2s	remaining: 7m 35s
+563:	learn: 0.8932332	test: 0.8798246	best: 0.8811404 (418)	total: 27.2s	remaining: 7m 35s
+564:	learn: 0.8933795	test: 0.8802632	best: 0.8811404 (418)	total: 27.3s	remaining: 7m 35s
+
+bestTest = 0.8811403509
+bestIteration = 418
+
+Shrink model to first 419 iterations.
+Saving AutogluonModels\ag-20240608_102347\models\CatBoost\model.pkl
+Saving AutogluonModels\ag-20240608_102347\utils\attr\CatBoost\y_pred_proba_val.pkl
+	0.8811	 = Validation score   (accuracy)
+	28.43s	 = Training   runtime
+	0.01s	 = Validation runtime
+Saving AutogluonModels\ag-20240608_102347\models\trainer.pkl
+Fitting model: ExtraTreesGini ...
+	Dropped 0 of 14 features.
+	Fitting ExtraTreesGini with 'num_gpus': 0, 'num_cpus': 8
+Saving AutogluonModels\ag-20240608_102347\models\ExtraTreesGini\model.pkl
+Saving AutogluonModels\ag-20240608_102347\utils\attr\ExtraTreesGini\y_pred_proba_val.pkl
+	0.8588	 = Validation score   (accuracy)
+	0.87s	 = Training   runtime
+	0.05s	 = Validation runtime
+Saving AutogluonModels\ag-20240608_102347\models\trainer.pkl
+Fitting model: ExtraTreesEntr ...
+	Dropped 0 of 14 features.
+	Fitting ExtraTreesEntr with 'num_gpus': 0, 'num_cpus': 8
+Saving AutogluonModels\ag-20240608_102347\models\ExtraTreesEntr\model.pkl
+Saving AutogluonModels\ag-20240608_102347\utils\attr\ExtraTreesEntr\y_pred_proba_val.pkl
+	0.8579	 = Validation score   (accuracy)
+	0.97s	 = Training   runtime
+	0.06s	 = Validation runtime
+Saving AutogluonModels\ag-20240608_102347\models\trainer.pkl
+Fitting model: NeuralNetFastAI ...
+	Dropped 0 of 14 features.
+	Fitting NeuralNetFastAI with 'num_gpus': 0, 'num_cpus': 4
+Fitting Neural Network with parameters {'layers': None, 'emb_drop': 0.1, 'ps': 0.1, 'bs': 'auto', 'lr': 0.01, 'epochs': 'auto', 'early.stopping.min_delta': 0.0001, 'early.stopping.patience': 20, 'smoothing': 0.0}...
+Using 7/7 categorical features
+Using 7 cont features
+Automated batch size selection: 256
+TabularModel(
+  (embeds): ModuleList(
+    (0): Embedding(10, 6)
+    (1): Embedding(17, 8)
+    (2): Embedding(8, 5)
+    (3): Embedding(16, 8)
+    (4): Embedding(7, 5)
+    (5): Embedding(6, 4)
+    (6): Embedding(42, 13)
+  )
+  (emb_drop): Dropout(p=0.1, inplace=False)
+  (bn_cont): BatchNorm1d(7, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (layers): Sequential(
+    (0): LinBnDrop(
+      (0): Linear(in_features=56, out_features=200, bias=False)
+      (1): ReLU(inplace=True)
+      (2): BatchNorm1d(200, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (3): Dropout(p=0.1, inplace=False)
+    )
+    (1): LinBnDrop(
+      (0): Linear(in_features=200, out_features=100, bias=False)
+      (1): ReLU(inplace=True)
+      (2): BatchNorm1d(100, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (3): Dropout(p=0.1, inplace=False)
+    )
+    (2): LinBnDrop(
+      (0): Linear(in_features=100, out_features=2, bias=True)
+    )
+  )
+)
+Better model found at epoch 0 with accuracy value: 0.8429824709892273.
+Better model found at epoch 1 with accuracy value: 0.8600876927375793.
+Better model found at epoch 5 with accuracy value: 0.8618420958518982.
+Better model found at epoch 6 with accuracy value: 0.8653509020805359.
+No improvement since epoch 6: early stopping
+Model validation metrics: 0.8653509020805359
+Saving AutogluonModels\ag-20240608_102347\models\NeuralNetFastAI\model.pkl
+Saving AutogluonModels\ag-20240608_102347\models\NeuralNetFastAImodel-internals.pkl
+Saving AutogluonModels\ag-20240608_102347\utils\attr\NeuralNetFastAI\y_pred_proba_val.pkl
+	0.8654	 = Validation score   (accuracy)
+	15.5s	 = Training   runtime
+	0.03s	 = Validation runtime
+Saving AutogluonModels\ag-20240608_102347\models\trainer.pkl
+Fitting model: XGBoost ...
+	Dropped 0 of 14 features.
+	Fitting XGBoost with 'num_gpus': 0, 'num_cpus': 4
+[0]	validation_0-error:0.24079
+[1]	validation_0-error:0.24079
+[2]	validation_0-error:0.24079
+[3]	validation_0-error:0.18947
+[4]	validation_0-error:0.18947
+[5]	validation_0-error:0.18860
+[6]	validation_0-error:0.18640
+[7]	validation_0-error:0.16886
+[8]	validation_0-error:0.14868
+[9]	validation_0-error:0.14561
+[10]	validation_0-error:0.14649
+[11]	validation_0-error:0.14605
+[12]	validation_0-error:0.14518
+[13]	validation_0-error:0.14123
+[14]	validation_0-error:0.13772
+[15]	validation_0-error:0.13728
+[16]	validation_0-error:0.13728
+[17]	validation_0-error:0.13421
+[18]	validation_0-error:0.13202
+[19]	validation_0-error:0.13158
+[20]	validation_0-error:0.13158
+[21]	validation_0-error:0.13158
+[22]	validation_0-error:0.13070
+[23]	validation_0-error:0.13114
+[24]	validation_0-error:0.13026
+[25]	validation_0-error:0.13026
+[26]	validation_0-error:0.12939
+[27]	validation_0-error:0.12982
+[28]	validation_0-error:0.12982
+[29]	validation_0-error:0.12895
+[30]	validation_0-error:0.12895
+[31]	validation_0-error:0.12851
+[32]	validation_0-error:0.12719
+[33]	validation_0-error:0.12675
+[34]	validation_0-error:0.12763
+[35]	validation_0-error:0.12763
+[36]	validation_0-error:0.12763
+[37]	validation_0-error:0.12719
+[38]	validation_0-error:0.12719
+[39]	validation_0-error:0.12719
+[40]	validation_0-error:0.12719
+[41]	validation_0-error:0.12632
+[42]	validation_0-error:0.12544
+[43]	validation_0-error:0.12456
+[44]	validation_0-error:0.12412
+[45]	validation_0-error:0.12412
+[46]	validation_0-error:0.12368
+[47]	validation_0-error:0.12325
+[48]	validation_0-error:0.12237
+[49]	validation_0-error:0.12237
+[50]	validation_0-error:0.12193
+[51]	validation_0-error:0.12193
+[52]	validation_0-error:0.12193
+[53]	validation_0-error:0.12149
+[54]	validation_0-error:0.12018
+[55]	validation_0-error:0.11974
+[56]	validation_0-error:0.12018
+[57]	validation_0-error:0.12193
+[58]	validation_0-error:0.12193
+[59]	validation_0-error:0.12061
+[60]	validation_0-error:0.12105
+[61]	validation_0-error:0.12149
+[62]	validation_0-error:0.12149
+[63]	validation_0-error:0.12149
+[64]	validation_0-error:0.12105
+[65]	validation_0-error:0.12061
+[66]	validation_0-error:0.12061
+[67]	validation_0-error:0.12105
+[68]	validation_0-error:0.12105
+[69]	validation_0-error:0.11930
+[70]	validation_0-error:0.11930
+[71]	validation_0-error:0.11930
+[72]	validation_0-error:0.11798
+[73]	validation_0-error:0.11754
+[74]	validation_0-error:0.11711
+[75]	validation_0-error:0.11667
+[76]	validation_0-error:0.11667
+[77]	validation_0-error:0.11667
+[78]	validation_0-error:0.11667
+[79]	validation_0-error:0.11623
+[80]	validation_0-error:0.11579
+[81]	validation_0-error:0.11579
+[82]	validation_0-error:0.11579
+[83]	validation_0-error:0.11579
+[84]	validation_0-error:0.11579
+[85]	validation_0-error:0.11623
+[86]	validation_0-error:0.11623
+[87]	validation_0-error:0.11579
+[88]	validation_0-error:0.11579
+[89]	validation_0-error:0.11579
+[90]	validation_0-error:0.11579
+[91]	validation_0-error:0.11579
+[92]	validation_0-error:0.11623
+[93]	validation_0-error:0.11535
+[94]	validation_0-error:0.11491
+[95]	validation_0-error:0.11491
+[96]	validation_0-error:0.11491
+[97]	validation_0-error:0.11535
+[98]	validation_0-error:0.11579
+[99]	validation_0-error:0.11535
+[100]	validation_0-error:0.11535
+[101]	validation_0-error:0.11447
+[102]	validation_0-error:0.11491
+[103]	validation_0-error:0.11491
+[104]	validation_0-error:0.11491
+[105]	validation_0-error:0.11535
+[106]	validation_0-error:0.11579
+[107]	validation_0-error:0.11579
+[108]	validation_0-error:0.11491
+[109]	validation_0-error:0.11491
+[110]	validation_0-error:0.11623
+[111]	validation_0-error:0.11579
+[112]	validation_0-error:0.11623
+[113]	validation_0-error:0.11491
+[114]	validation_0-error:0.11447
+[115]	validation_0-error:0.11579
+[116]	validation_0-error:0.11579
+[117]	validation_0-error:0.11579
+[118]	validation_0-error:0.11535
+[119]	validation_0-error:0.11491
+[120]	validation_0-error:0.11404
+[121]	validation_0-error:0.11316
+[122]	validation_0-error:0.11404
+[123]	validation_0-error:0.11404
+[124]	validation_0-error:0.11404
+[125]	validation_0-error:0.11404
+[126]	validation_0-error:0.11404
+[127]	validation_0-error:0.11360
+[128]	validation_0-error:0.11360
+[129]	validation_0-error:0.11360
+[130]	validation_0-error:0.11404
+[131]	validation_0-error:0.11404
+[132]	validation_0-error:0.11316
+[133]	validation_0-error:0.11360
+[134]	validation_0-error:0.11447
+[135]	validation_0-error:0.11491
+[136]	validation_0-error:0.11404
+[137]	validation_0-error:0.11447
+[138]	validation_0-error:0.11491
+[139]	validation_0-error:0.11623
+[140]	validation_0-error:0.11535
+[141]	validation_0-error:0.11535
+[142]	validation_0-error:0.11535
+[143]	validation_0-error:0.11535
+[144]	validation_0-error:0.11535
+[145]	validation_0-error:0.11579
+[146]	validation_0-error:0.11491
+[147]	validation_0-error:0.11535
+[148]	validation_0-error:0.11491
+[149]	validation_0-error:0.11491
+[150]	validation_0-error:0.11535
+[151]	validation_0-error:0.11491
+[152]	validation_0-error:0.11404
+[153]	validation_0-error:0.11316
+[154]	validation_0-error:0.11447
+[155]	validation_0-error:0.11447
+[156]	validation_0-error:0.11447
+[157]	validation_0-error:0.11491
+[158]	validation_0-error:0.11447
+[159]	validation_0-error:0.11447
+[160]	validation_0-error:0.11579
+[161]	validation_0-error:0.11579
+[162]	validation_0-error:0.11579
+[163]	validation_0-error:0.11579
+[164]	validation_0-error:0.11579
+[165]	validation_0-error:0.11579
+[166]	validation_0-error:0.11491
+[167]	validation_0-error:0.11491
+[168]	validation_0-error:0.11579
+[169]	validation_0-error:0.11579
+[170]	validation_0-error:0.11667
+[171]	validation_0-error:0.11623
+[172]	validation_0-error:0.11667
+[173]	validation_0-error:0.11667
+[174]	validation_0-error:0.11667
+[175]	validation_0-error:0.11667
+[176]	validation_0-error:0.11667
+[177]	validation_0-error:0.11579
+[178]	validation_0-error:0.11579
+[179]	validation_0-error:0.11579
+[180]	validation_0-error:0.11711
+[181]	validation_0-error:0.11711
+[182]	validation_0-error:0.11711
+[183]	validation_0-error:0.11623
+[184]	validation_0-error:0.11623
+[185]	validation_0-error:0.11623
+[186]	validation_0-error:0.11623
+[187]	validation_0-error:0.11711
+[188]	validation_0-error:0.11667
+[189]	validation_0-error:0.11667
+[190]	validation_0-error:0.11711
+[191]	validation_0-error:0.11711
+[192]	validation_0-error:0.11711
+[193]	validation_0-error:0.11711
+[194]	validation_0-error:0.11579
+[195]	validation_0-error:0.11623
+[196]	validation_0-error:0.11579
+[197]	validation_0-error:0.11579
+[198]	validation_0-error:0.11579
+[199]	validation_0-error:0.11623
+[200]	validation_0-error:0.11623
+[201]	validation_0-error:0.11667
+[202]	validation_0-error:0.11667
+[203]	validation_0-error:0.11754
+[204]	validation_0-error:0.11754
+[205]	validation_0-error:0.11754
+[206]	validation_0-error:0.11754
+[207]	validation_0-error:0.11754
+[208]	validation_0-error:0.11711
+[209]	validation_0-error:0.11754
+[210]	validation_0-error:0.11754
+[211]	validation_0-error:0.11754
+[212]	validation_0-error:0.11798
+[213]	validation_0-error:0.11842
+[214]	validation_0-error:0.11842
+[215]	validation_0-error:0.11842
+[216]	validation_0-error:0.11886
+[217]	validation_0-error:0.11930
+[218]	validation_0-error:0.11886
+[219]	validation_0-error:0.11886
+[220]	validation_0-error:0.11930
+[221]	validation_0-error:0.11930
+[222]	validation_0-error:0.11886
+[223]	validation_0-error:0.11930
+[224]	validation_0-error:0.11930
+[225]	validation_0-error:0.11930
+[226]	validation_0-error:0.11974
+[227]	validation_0-error:0.11930
+[228]	validation_0-error:0.11930
+[229]	validation_0-error:0.11930
+[230]	validation_0-error:0.11930
+[231]	validation_0-error:0.11930
+[232]	validation_0-error:0.11930
+[233]	validation_0-error:0.11930
+[234]	validation_0-error:0.11930
+[235]	validation_0-error:0.11886
+[236]	validation_0-error:0.11886
+[237]	validation_0-error:0.11886
+[238]	validation_0-error:0.11886
+[239]	validation_0-error:0.11886
+[240]	validation_0-error:0.11886
+[241]	validation_0-error:0.11886
+[242]	validation_0-error:0.11886
+[243]	validation_0-error:0.11842
+[244]	validation_0-error:0.11886
+[245]	validation_0-error:0.11930
+[246]	validation_0-error:0.11930
+[247]	validation_0-error:0.11930
+[248]	validation_0-error:0.11886
+[249]	validation_0-error:0.11930
+[250]	validation_0-error:0.11930
+[251]	validation_0-error:0.11886
+[252]	validation_0-error:0.11798
+[253]	validation_0-error:0.11842
+[254]	validation_0-error:0.11842
+[255]	validation_0-error:0.11842
+[256]	validation_0-error:0.11798
+[257]	validation_0-error:0.11842
+[258]	validation_0-error:0.11842
+[259]	validation_0-error:0.11842
+[260]	validation_0-error:0.11842
+[261]	validation_0-error:0.11886
+[262]	validation_0-error:0.11886
+[263]	validation_0-error:0.11930
+[264]	validation_0-error:0.11930
+[265]	validation_0-error:0.11930
+[266]	validation_0-error:0.11930
+[267]	validation_0-error:0.11974
+Saving AutogluonModels\ag-20240608_102347\models\XGBoost\model.pkl
+Saving AutogluonModels\ag-20240608_102347\utils\attr\XGBoost\y_pred_proba_val.pkl
+	0.8868	 = Validation score   (accuracy)
+	1.26s	 = Training   runtime
+	0.01s	 = Validation runtime
+Saving AutogluonModels\ag-20240608_102347\models\trainer.pkl
+Fitting model: NeuralNetTorch ...
+	Dropped 0 of 14 features.
+	Fitting NeuralNetTorch with 'num_gpus': 0, 'num_cpus': 4
+Tabular Neural Network treats features as the following types:
+{
+    "continuous": [
+        "age",
+        "education.num",
+        "hours.per.week"
+    ],
+    "skewed": [
+        "fnlwgt",
+        "capital.gain",
+        "capital.loss"
+    ],
+    "onehot": [],
+    "embed": [
+        "workclass",
+        "education",
+        "marital.status",
+        "occupation",
+        "relationship",
+        "race",
+        "native.country"
+    ],
+    "language": [],
+    "bool": [
+        "sex"
+    ]
+}
+
+
+Training data for TabularNeuralNetTorchModel has: 20512 examples, 14 features (7 vector, 7 embedding)
+Training on CPU
+Neural network architecture:
+EmbedNet(
+  (embed_blocks): ModuleList(
+    (0): Embedding(10, 5)
+    (1): Embedding(17, 7)
+    (2): Embedding(8, 5)
+    (3): Embedding(16, 7)
+    (4): Embedding(7, 4)
+    (5): Embedding(6, 4)
+    (6): Embedding(42, 12)
+  )
+  (main_block): Sequential(
+    (0): Linear(in_features=51, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.1, inplace=False)
+    (3): Linear(in_features=128, out_features=128, bias=True)
+    (4): ReLU()
+    (5): Dropout(p=0.1, inplace=False)
+    (6): Linear(in_features=128, out_features=128, bias=True)
+    (7): ReLU()
+    (8): Dropout(p=0.1, inplace=False)
+    (9): Linear(in_features=128, out_features=128, bias=True)
+    (10): ReLU()
+    (11): Linear(in_features=128, out_features=2, bias=True)
+  )
+  (softmax): Softmax(dim=1)
+)
+Training tabular neural network for up to 500 epochs...
+Epoch 1 (Update 160).	Train loss: 0.4296, Val accuracy: 0.8447, Best Epoch: 1
+Epoch 2 (Update 320).	Train loss: 0.3531, Val accuracy: 0.8482, Best Epoch: 2
+Epoch 3 (Update 480).	Train loss: 0.3435, Val accuracy: 0.8491, Best Epoch: 3
+Epoch 4 (Update 640).	Train loss: 0.3365, Val accuracy: 0.8474, Best Epoch: 3
+Epoch 5 (Update 800).	Train loss: 0.3312, Val accuracy: 0.8496, Best Epoch: 5
+Epoch 6 (Update 960).	Train loss: 0.3287, Val accuracy: 0.8539, Best Epoch: 6
+Epoch 7 (Update 1120).	Train loss: 0.3246, Val accuracy: 0.8553, Best Epoch: 7
+Epoch 8 (Update 1280).	Train loss: 0.3224, Val accuracy: 0.8575, Best Epoch: 8
+Epoch 9 (Update 1440).	Train loss: 0.3182, Val accuracy: 0.8583, Best Epoch: 9
+Epoch 10 (Update 1600).	Train loss: 0.3161, Val accuracy: 0.8539, Best Epoch: 9
+Epoch 11 (Update 1760).	Train loss: 0.3157, Val accuracy: 0.8605, Best Epoch: 11
+Epoch 12 (Update 1920).	Train loss: 0.3114, Val accuracy: 0.8601, Best Epoch: 11
+Epoch 13 (Update 2080).	Train loss: 0.31, Val accuracy: 0.861, Best Epoch: 13
+Epoch 14 (Update 2240).	Train loss: 0.3068, Val accuracy: 0.8605, Best Epoch: 13
+Epoch 15 (Update 2400).	Train loss: 0.3054, Val accuracy: 0.8588, Best Epoch: 13
+Epoch 16 (Update 2560).	Train loss: 0.3034, Val accuracy: 0.8583, Best Epoch: 13
+Epoch 17 (Update 2720).	Train loss: 0.3014, Val accuracy: 0.8601, Best Epoch: 13
+Epoch 18 (Update 2880).	Train loss: 0.3005, Val accuracy: 0.8618, Best Epoch: 18
+Epoch 19 (Update 3040).	Train loss: 0.3009, Val accuracy: 0.8583, Best Epoch: 18
+Epoch 20 (Update 3200).	Train loss: 0.297, Val accuracy: 0.8579, Best Epoch: 18
+Epoch 21 (Update 3360).	Train loss: 0.2963, Val accuracy: 0.8596, Best Epoch: 18
+Epoch 22 (Update 3520).	Train loss: 0.2939, Val accuracy: 0.8575, Best Epoch: 18
+Epoch 23 (Update 3680).	Train loss: 0.2905, Val accuracy: 0.864, Best Epoch: 23
+Epoch 24 (Update 3840).	Train loss: 0.289, Val accuracy: 0.8575, Best Epoch: 23
+Epoch 25 (Update 4000).	Train loss: 0.2894, Val accuracy: 0.8596, Best Epoch: 23
+Epoch 26 (Update 4160).	Train loss: 0.288, Val accuracy: 0.8596, Best Epoch: 23
+Epoch 27 (Update 4320).	Train loss: 0.2849, Val accuracy: 0.8557, Best Epoch: 23
+Epoch 28 (Update 4480).	Train loss: 0.2806, Val accuracy: 0.8605, Best Epoch: 23
+Epoch 29 (Update 4640).	Train loss: 0.2804, Val accuracy: 0.8614, Best Epoch: 23
+Epoch 30 (Update 4800).	Train loss: 0.2808, Val accuracy: 0.8557, Best Epoch: 23
+Epoch 31 (Update 4960).	Train loss: 0.2787, Val accuracy: 0.8561, Best Epoch: 23
+Epoch 32 (Update 5120).	Train loss: 0.2793, Val accuracy: 0.8561, Best Epoch: 23
+Epoch 33 (Update 5280).	Train loss: 0.2763, Val accuracy: 0.8496, Best Epoch: 23
+Epoch 34 (Update 5440).	Train loss: 0.2744, Val accuracy: 0.857, Best Epoch: 23
+Epoch 35 (Update 5600).	Train loss: 0.2719, Val accuracy: 0.8531, Best Epoch: 23
+Epoch 36 (Update 5760).	Train loss: 0.2715, Val accuracy: 0.857, Best Epoch: 23
+Epoch 37 (Update 5920).	Train loss: 0.2703, Val accuracy: 0.8588, Best Epoch: 23
+Epoch 38 (Update 6080).	Train loss: 0.27, Val accuracy: 0.8566, Best Epoch: 23
+Epoch 39 (Update 6240).	Train loss: 0.2676, Val accuracy: 0.8557, Best Epoch: 23
+Epoch 40 (Update 6400).	Train loss: 0.2659, Val accuracy: 0.8566, Best Epoch: 23
+Epoch 41 (Update 6560).	Train loss: 0.266, Val accuracy: 0.8553, Best Epoch: 23
+Epoch 42 (Update 6720).	Train loss: 0.2641, Val accuracy: 0.8557, Best Epoch: 23
+Epoch 43 (Update 6880).	Train loss: 0.2628, Val accuracy: 0.8548, Best Epoch: 23
+Best model found on Epoch 23 (Update 3680). Val accuracy: 0.8640350877192983
+Saving AutogluonModels\ag-20240608_102347\models\NeuralNetTorch\model.pkl
+Saving AutogluonModels\ag-20240608_102347\utils\attr\NeuralNetTorch\y_pred_proba_val.pkl
+	0.864	 = Validation score   (accuracy)
+	25.77s	 = Training   runtime
+	0.01s	 = Validation runtime
+Saving AutogluonModels\ag-20240608_102347\models\trainer.pkl
+Fitting model: LightGBMLarge ...
+	Dropped 0 of 14 features.
+	Fitting LightGBMLarge with 'num_gpus': 0, 'num_cpus': 4
+	Fitting 10000 rounds... Hyperparameters: {'learning_rate': 0.03, 'num_leaves': 128, 'feature_fraction': 0.9, 'min_data_in_leaf': 5}
+[1]	valid_set's binary_error: 0.240789
+[2]	valid_set's binary_error: 0.240789
+[3]	valid_set's binary_error: 0.240789
+[4]	valid_set's binary_error: 0.240789
+[5]	valid_set's binary_error: 0.240789
+[6]	valid_set's binary_error: 0.240789
+[7]	valid_set's binary_error: 0.240789
+[8]	valid_set's binary_error: 0.240789
+[9]	valid_set's binary_error: 0.240789
+[10]	valid_set's binary_error: 0.240789
+[11]	valid_set's binary_error: 0.240789
+[12]	valid_set's binary_error: 0.240789
+[13]	valid_set's binary_error: 0.240789
+[14]	valid_set's binary_error: 0.234211
+[15]	valid_set's binary_error: 0.20614
+[16]	valid_set's binary_error: 0.198246
+[17]	valid_set's binary_error: 0.193421
+[18]	valid_set's binary_error: 0.186404
+[19]	valid_set's binary_error: 0.181579
+[20]	valid_set's binary_error: 0.175439
+[21]	valid_set's binary_error: 0.167105
+[22]	valid_set's binary_error: 0.164474
+[23]	valid_set's binary_error: 0.158333
+[24]	valid_set's binary_error: 0.154825
+[25]	valid_set's binary_error: 0.145175
+[26]	valid_set's binary_error: 0.145614
+[27]	valid_set's binary_error: 0.143421
+[28]	valid_set's binary_error: 0.14386
+[29]	valid_set's binary_error: 0.144737
+[30]	valid_set's binary_error: 0.14386
+[31]	valid_set's binary_error: 0.143421
+[32]	valid_set's binary_error: 0.141228
+[33]	valid_set's binary_error: 0.141228
+[34]	valid_set's binary_error: 0.139912
+[35]	valid_set's binary_error: 0.137719
+[36]	valid_set's binary_error: 0.136842
+[37]	valid_set's binary_error: 0.135088
+[38]	valid_set's binary_error: 0.134211
+[39]	valid_set's binary_error: 0.133772
+[40]	valid_set's binary_error: 0.132895
+[41]	valid_set's binary_error: 0.131579
+[42]	valid_set's binary_error: 0.131579
+[43]	valid_set's binary_error: 0.132018
+[44]	valid_set's binary_error: 0.132018
+[45]	valid_set's binary_error: 0.132018
+[46]	valid_set's binary_error: 0.132456
+[47]	valid_set's binary_error: 0.132018
+[48]	valid_set's binary_error: 0.132895
+[49]	valid_set's binary_error: 0.132456
+[50]	valid_set's binary_error: 0.132018
+[51]	valid_set's binary_error: 0.131579
+[52]	valid_set's binary_error: 0.131579
+[53]	valid_set's binary_error: 0.13114
+[54]	valid_set's binary_error: 0.130702
+[55]	valid_set's binary_error: 0.130702
+[56]	valid_set's binary_error: 0.130263
+[57]	valid_set's binary_error: 0.128509
+[58]	valid_set's binary_error: 0.128509
+[59]	valid_set's binary_error: 0.127193
+[60]	valid_set's binary_error: 0.127193
+[61]	valid_set's binary_error: 0.126754
+[62]	valid_set's binary_error: 0.125877
+[63]	valid_set's binary_error: 0.125877
+[64]	valid_set's binary_error: 0.126754
+[65]	valid_set's binary_error: 0.126316
+[66]	valid_set's binary_error: 0.125877
+[67]	valid_set's binary_error: 0.125439
+[68]	valid_set's binary_error: 0.125
+[69]	valid_set's binary_error: 0.124561
+[70]	valid_set's binary_error: 0.124561
+[71]	valid_set's binary_error: 0.125439
+[72]	valid_set's binary_error: 0.125
+[73]	valid_set's binary_error: 0.125
+[74]	valid_set's binary_error: 0.125
+[75]	valid_set's binary_error: 0.125439
+[76]	valid_set's binary_error: 0.125439
+[77]	valid_set's binary_error: 0.125439
+[78]	valid_set's binary_error: 0.125
+[79]	valid_set's binary_error: 0.125877
+[80]	valid_set's binary_error: 0.126316
+[81]	valid_set's binary_error: 0.125877
+[82]	valid_set's binary_error: 0.126754
+[83]	valid_set's binary_error: 0.126754
+[84]	valid_set's binary_error: 0.126316
+[85]	valid_set's binary_error: 0.125877
+[86]	valid_set's binary_error: 0.125877
+[87]	valid_set's binary_error: 0.125439
+[88]	valid_set's binary_error: 0.125439
+[89]	valid_set's binary_error: 0.125439
+[90]	valid_set's binary_error: 0.125439
+[91]	valid_set's binary_error: 0.125877
+[92]	valid_set's binary_error: 0.125877
+[93]	valid_set's binary_error: 0.125877
+[94]	valid_set's binary_error: 0.125877
+[95]	valid_set's binary_error: 0.126316
+[96]	valid_set's binary_error: 0.126754
+[97]	valid_set's binary_error: 0.127193
+[98]	valid_set's binary_error: 0.126316
+[99]	valid_set's binary_error: 0.127193
+[100]	valid_set's binary_error: 0.126754
+[101]	valid_set's binary_error: 0.127193
+[102]	valid_set's binary_error: 0.126316
+[103]	valid_set's binary_error: 0.125877
+[104]	valid_set's binary_error: 0.125877
+[105]	valid_set's binary_error: 0.126754
+[106]	valid_set's binary_error: 0.127632
+[107]	valid_set's binary_error: 0.12807
+[108]	valid_set's binary_error: 0.126316
+[109]	valid_set's binary_error: 0.127193
+[110]	valid_set's binary_error: 0.127193
+[111]	valid_set's binary_error: 0.126754
+[112]	valid_set's binary_error: 0.126754
+[113]	valid_set's binary_error: 0.127193
+[114]	valid_set's binary_error: 0.127193
+[115]	valid_set's binary_error: 0.127193
+[116]	valid_set's binary_error: 0.125877
+[117]	valid_set's binary_error: 0.126316
+[118]	valid_set's binary_error: 0.126754
+[119]	valid_set's binary_error: 0.127193
+[120]	valid_set's binary_error: 0.127193
+[121]	valid_set's binary_error: 0.127632
+[122]	valid_set's binary_error: 0.127193
+[123]	valid_set's binary_error: 0.127193
+[124]	valid_set's binary_error: 0.126754
+[125]	valid_set's binary_error: 0.126754
+[126]	valid_set's binary_error: 0.127193
+[127]	valid_set's binary_error: 0.127193
+[128]	valid_set's binary_error: 0.127632
+[129]	valid_set's binary_error: 0.126754
+[130]	valid_set's binary_error: 0.126754
+[131]	valid_set's binary_error: 0.126316
+[132]	valid_set's binary_error: 0.126316
+[133]	valid_set's binary_error: 0.126754
+[134]	valid_set's binary_error: 0.126754
+[135]	valid_set's binary_error: 0.126316
+[136]	valid_set's binary_error: 0.126316
+[137]	valid_set's binary_error: 0.126316
+[138]	valid_set's binary_error: 0.127632
+[139]	valid_set's binary_error: 0.127193
+[140]	valid_set's binary_error: 0.127193
+[141]	valid_set's binary_error: 0.127632
+[142]	valid_set's binary_error: 0.127632
+[143]	valid_set's binary_error: 0.127632
+[144]	valid_set's binary_error: 0.127193
+[145]	valid_set's binary_error: 0.12807
+[146]	valid_set's binary_error: 0.127632
+[147]	valid_set's binary_error: 0.128509
+[148]	valid_set's binary_error: 0.127632
+[149]	valid_set's binary_error: 0.128509
+[150]	valid_set's binary_error: 0.12807
+[151]	valid_set's binary_error: 0.12807
+[152]	valid_set's binary_error: 0.127632
+[153]	valid_set's binary_error: 0.126754
+[154]	valid_set's binary_error: 0.126316
+[155]	valid_set's binary_error: 0.126754
+[156]	valid_set's binary_error: 0.126754
+[157]	valid_set's binary_error: 0.126754
+[158]	valid_set's binary_error: 0.126754
+[159]	valid_set's binary_error: 0.126316
+[160]	valid_set's binary_error: 0.126754
+[161]	valid_set's binary_error: 0.126754
+[162]	valid_set's binary_error: 0.126316
+[163]	valid_set's binary_error: 0.126316
+[164]	valid_set's binary_error: 0.126316
+[165]	valid_set's binary_error: 0.126316
+[166]	valid_set's binary_error: 0.126316
+[167]	valid_set's binary_error: 0.125877
+[168]	valid_set's binary_error: 0.125877
+[169]	valid_set's binary_error: 0.125877
+[170]	valid_set's binary_error: 0.125877
+[171]	valid_set's binary_error: 0.125877
+[172]	valid_set's binary_error: 0.126316
+[173]	valid_set's binary_error: 0.126754
+[174]	valid_set's binary_error: 0.126754
+[175]	valid_set's binary_error: 0.126754
+[176]	valid_set's binary_error: 0.126754
+[177]	valid_set's binary_error: 0.126754
+[178]	valid_set's binary_error: 0.126316
+[179]	valid_set's binary_error: 0.126316
+[180]	valid_set's binary_error: 0.126316
+[181]	valid_set's binary_error: 0.126316
+[182]	valid_set's binary_error: 0.126754
+[183]	valid_set's binary_error: 0.127193
+[184]	valid_set's binary_error: 0.127632
+[185]	valid_set's binary_error: 0.12807
+[186]	valid_set's binary_error: 0.12807
+[187]	valid_set's binary_error: 0.127632
+[188]	valid_set's binary_error: 0.12807
+[189]	valid_set's binary_error: 0.127193
+[190]	valid_set's binary_error: 0.127632
+[191]	valid_set's binary_error: 0.127632
+[192]	valid_set's binary_error: 0.12807
+[193]	valid_set's binary_error: 0.127632
+[194]	valid_set's binary_error: 0.127632
+[195]	valid_set's binary_error: 0.128509
+[196]	valid_set's binary_error: 0.12807
+[197]	valid_set's binary_error: 0.128509
+[198]	valid_set's binary_error: 0.12807
+[199]	valid_set's binary_error: 0.12807
+[200]	valid_set's binary_error: 0.128509
+[201]	valid_set's binary_error: 0.128509
+[202]	valid_set's binary_error: 0.12807
+[203]	valid_set's binary_error: 0.12807
+[204]	valid_set's binary_error: 0.12807
+[205]	valid_set's binary_error: 0.127632
+[206]	valid_set's binary_error: 0.127632
+[207]	valid_set's binary_error: 0.127632
+[208]	valid_set's binary_error: 0.127632
+[209]	valid_set's binary_error: 0.127632
+[210]	valid_set's binary_error: 0.127632
+[211]	valid_set's binary_error: 0.127632
+[212]	valid_set's binary_error: 0.127632
+[213]	valid_set's binary_error: 0.127632
+[214]	valid_set's binary_error: 0.127632
+[215]	valid_set's binary_error: 0.127632
+Saving AutogluonModels\ag-20240608_102347\models\LightGBMLarge\model.pkl
+Saving AutogluonModels\ag-20240608_102347\utils\attr\LightGBMLarge\y_pred_proba_val.pkl
+	0.8754	 = Validation score   (accuracy)
+	0.82s	 = Training   runtime
+	0.01s	 = Validation runtime
+Saving AutogluonModels\ag-20240608_102347\models\trainer.pkl
+Loading: AutogluonModels\ag-20240608_102347\utils\attr\XGBoost\y_pred_proba_val.pkl
+Loading: AutogluonModels\ag-20240608_102347\utils\attr\LightGBMLarge\y_pred_proba_val.pkl
+Loading: AutogluonModels\ag-20240608_102347\utils\attr\RandomForestGini\y_pred_proba_val.pkl
+Loading: AutogluonModels\ag-20240608_102347\utils\attr\LightGBM\y_pred_proba_val.pkl
+Loading: AutogluonModels\ag-20240608_102347\utils\attr\ExtraTreesEntr\y_pred_proba_val.pkl
+Loading: AutogluonModels\ag-20240608_102347\utils\attr\CatBoost\y_pred_proba_val.pkl
+Loading: AutogluonModels\ag-20240608_102347\utils\attr\KNeighborsUnif\y_pred_proba_val.pkl
+Loading: AutogluonModels\ag-20240608_102347\utils\attr\LightGBMXT\y_pred_proba_val.pkl
+Loading: AutogluonModels\ag-20240608_102347\utils\attr\KNeighborsDist\y_pred_proba_val.pkl
+Loading: AutogluonModels\ag-20240608_102347\utils\attr\RandomForestEntr\y_pred_proba_val.pkl
+Loading: AutogluonModels\ag-20240608_102347\utils\attr\NeuralNetTorch\y_pred_proba_val.pkl
+Loading: AutogluonModels\ag-20240608_102347\utils\attr\NeuralNetFastAI\y_pred_proba_val.pkl
+Loading: AutogluonModels\ag-20240608_102347\utils\attr\ExtraTreesGini\y_pred_proba_val.pkl
+Model configs that will be trained (in order):
+	WeightedEnsemble_L2: 	{'ag_args': {'valid_base': False, 'name_bag_suffix': '', 'model_type': <class 'autogluon.core.models.greedy_ensemble.greedy_weighted_ensemble_model.GreedyWeightedEnsembleModel'>, 'priority': 0}, 'ag_args_ensemble': {'save_bag_folds': True}}
+Fitting model: WeightedEnsemble_L2 ...
+	Dropped 0 of 13 features.
+	Dropped 0 of 13 features.
+	Fitting WeightedEnsemble_L2 with 'num_gpus': 0, 'num_cpus': 8
+Saving AutogluonModels\ag-20240608_102347\models\WeightedEnsemble_L2\utils\model_template.pkl
+Loading: AutogluonModels\ag-20240608_102347\models\WeightedEnsemble_L2\utils\model_template.pkl
+	Dropped 0 of 13 features.
+Ensemble size: 1
+Ensemble indices: [10]
+Ensemble weights:
+[0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 1. 0. 0.]
+Saving AutogluonModels\ag-20240608_102347\models\WeightedEnsemble_L2\utils\oof.pkl
+Saving AutogluonModels\ag-20240608_102347\models\WeightedEnsemble_L2\model.pkl
+	Ensemble Weights: {'XGBoost': 1.0}
+	0.8868	 = Validation score   (accuracy)
+	0.13s	 = Training   runtime
+	0.0s	 = Validation runtime
+Saving AutogluonModels\ag-20240608_102347\models\trainer.pkl
+Saving AutogluonModels\ag-20240608_102347\models\trainer.pkl
+Saving AutogluonModels\ag-20240608_102347\models\trainer.pkl
+AutoGluon training complete, total runtime = 78.81s ... Best model: "WeightedEnsemble_L2"
+Loading: AutogluonModels\ag-20240608_102347\models\trainer.pkl
+Saving AutogluonModels\ag-20240608_102347\models\trainer.pkl
+Saving AutogluonModels\ag-20240608_102347\learner.pkl
+Saving AutogluonModels\ag-20240608_102347\predictor.pkl
+Saving AutogluonModels\ag-20240608_102347\__version__ with contents "1.1.0"
+Saving AutogluonModels\ag-20240608_102347\metadata.json
+TabularPredictor saved. To load, use: predictor = TabularPredictor.load("AutogluonModels\ag-20240608_102347")
+Loading: AutogluonModels\ag-20240608_102347\models\KNeighborsUnif\model.pkl
+Loading: AutogluonModels\ag-20240608_102347\models\KNeighborsDist\model.pkl
+Loading: AutogluonModels\ag-20240608_102347\models\LightGBMXT\model.pkl
+Loading: AutogluonModels\ag-20240608_102347\models\LightGBM\model.pkl
+Loading: AutogluonModels\ag-20240608_102347\models\RandomForestGini\model.pkl
+Loading: AutogluonModels\ag-20240608_102347\models\RandomForestEntr\model.pkl
+Loading: AutogluonModels\ag-20240608_102347\models\CatBoost\model.pkl
+Loading: AutogluonModels\ag-20240608_102347\models\ExtraTreesGini\model.pkl
+Loading: AutogluonModels\ag-20240608_102347\models\ExtraTreesEntr\model.pkl
+Loading: AutogluonModels\ag-20240608_102347\models\NeuralNetFastAI\model.pkl
+Loading: AutogluonModels\ag-20240608_102347\models\NeuralNetFastAImodel-internals.pkl
+Loading: AutogluonModels\ag-20240608_102347\models\XGBoost\model.pkl
+Loading: AutogluonModels\ag-20240608_102347\models\NeuralNetTorch\model.pkl
+Loading: AutogluonModels\ag-20240608_102347\models\LightGBMLarge\model.pkl
+Loading: AutogluonModels\ag-20240608_102347\models\WeightedEnsemble_L2\model.pkl
+*** Summary of fit() ***
+Estimated performance of each model:
+                  model  score_val eval_metric  pred_time_val   fit_time  pred_time_val_marginal  fit_time_marginal  stack_level  can_infer  fit_order
+0               XGBoost   0.886842    accuracy       0.011999   1.259266                0.011999           1.259266            1       True         11
+1   WeightedEnsemble_L2   0.886842    accuracy       0.011999   1.387548                0.000000           0.128282            2       True         14
+2              CatBoost   0.881140    accuracy       0.005948  28.429320                0.005948          28.429320            1       True          7
+3              LightGBM   0.879386    accuracy       0.008998   0.500514                0.008998           0.500514            1       True          4
+4         LightGBMLarge   0.875439    accuracy       0.012004   0.817133                0.012004           0.817133            1       True         13
+5            LightGBMXT   0.873684    accuracy       0.005999   0.623864                0.005999           0.623864            1       True          3
+6      RandomForestGini   0.865789    accuracy       0.048026   1.224251                0.048026           1.224251            1       True          5
+7       NeuralNetFastAI   0.865351    accuracy       0.028996  15.504385                0.028996          15.504385            1       True         10
+8      RandomForestEntr   0.864474    accuracy       0.059554   1.399686                0.059554           1.399686            1       True          6
+9        NeuralNetTorch   0.864035    accuracy       0.014003  25.772607                0.014003          25.772607            1       True         12
+10       ExtraTreesGini   0.858772    accuracy       0.049106   0.872447                0.049106           0.872447            1       True          8
+11       ExtraTreesEntr   0.857895    accuracy       0.059604   0.970573                0.059604           0.970573            1       True          9
+12       KNeighborsUnif   0.775000    accuracy       0.018507   0.018977                0.018507           0.018977            1       True          1
+13       KNeighborsDist   0.768421    accuracy       0.017506   0.017000                0.017506           0.017000            1       True          2
+Number of models trained: 14
+Types of models trained:
+{'WeightedEnsembleModel', 'KNNModel', 'RFModel', 'XGBoostModel', 'CatBoostModel', 'NNFastAiTabularModel', 'XTModel', 'TabularNeuralNetTorchModel', 'LGBModel'}
+Bagging used: False
+Multi-layer stack-ensembling used: False
+Feature Metadata (Processed):
+(raw dtype, special dtypes):
+('category', [])  : 7 | ['workclass', 'education', 'marital.status', 'occupation', 'relationship', ...]
+('int', [])       : 6 | ['age', 'fnlwgt', 'education.num', 'capital.gain', 'capital.loss', ...]
+('int', ['bool']) : 1 | ['sex']
+*** End of fit() summary ***
+                  model  score_val  ... can_infer  fit_order
+0               XGBoost   0.886842  ...      True         11
+1   WeightedEnsemble_L2   0.886842  ...      True         14
+2              CatBoost   0.881140  ...      True          7
+3              LightGBM   0.879386  ...      True          4
+4         LightGBMLarge   0.875439  ...      True         13
+5            LightGBMXT   0.873684  ...      True          3
+6      RandomForestGini   0.865789  ...      True          5
+7       NeuralNetFastAI   0.865351  ...      True         10
+8      RandomForestEntr   0.864474  ...      True          6
+9        NeuralNetTorch   0.864035  ...      True         12
+10       ExtraTreesGini   0.858772  ...      True          8
+11       ExtraTreesEntr   0.857895  ...      True          9
+12       KNeighborsUnif   0.775000  ...      True          1
+13       KNeighborsDist   0.768421  ...      True          2
+
+[14 rows x 10 columns]
+Loading: AutogluonModels\ag-20240608_102347\models\XGBoost\model.pkl
+Loading: AutogluonModels\ag-20240608_102347\models\WeightedEnsemble_L2\model.pkl
+0       0
+1       1
+2       0
+3       1
+4       0
+       ..
+9764    0
+9765    0
+9766    1
+9767    0
+9768    0
+Name: Income, Length: 9769, dtype: int64
+Predictions saved successfully to 'predict/Autogluon_predictions.csv'
+
+进程已结束，退出代码为 0
