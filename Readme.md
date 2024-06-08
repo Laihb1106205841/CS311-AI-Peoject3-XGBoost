@@ -63,7 +63,7 @@ pip install xgboost
 
 (tips: install time is a bit long! And we don't fully need it!)
 
-这个包有很多版本限制，并且需要管理员权限来安装，我们只在Autogluon文件中进行了跑，如果跑不起来也没问题。
+这个包有很多版本限制，要依赖很多包（比如torch），文件非常大，并且需要管理员权限来安装，我们只在Autogluon文件中进行了跑，如果跑不起来也没问题。
 ```commandline
 pip install autogluon
 ```
